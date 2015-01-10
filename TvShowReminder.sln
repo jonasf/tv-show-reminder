@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder", "TvShowReminder\TvShowReminder.csproj", "{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminderWorker", "TvShowReminderWorker\TvShowReminderWorker.csproj", "{EF9ACA76-556C-4B75-AF5F-2CF1FB792468}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9ACA76-556C-4B75-AF5F-2CF1FB792468}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9ACA76-556C-4B75-AF5F-2CF1FB792468}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9ACA76-556C-4B75-AF5F-2CF1FB792468}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9ACA76-556C-4B75-AF5F-2CF1FB792468}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
