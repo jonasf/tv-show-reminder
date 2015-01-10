@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TvShowReminderWorker
 {
@@ -10,6 +6,7 @@ namespace TvShowReminderWorker
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("I am the web job, I ran at {0}", DateTime.Now);
         }
     }
 }
