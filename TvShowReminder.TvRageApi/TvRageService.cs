@@ -4,7 +4,7 @@ using TvShowReminder.TvRageApi.Utilities;
 
 namespace TvShowReminder.TvRageApi
 {
-    public class TvRageService
+    public class TvRageService : ITvRageService
     {
         private readonly HttpClient _httpClient;
 
