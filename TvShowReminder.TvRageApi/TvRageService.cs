@@ -16,5 +16,11 @@ namespace TvShowReminder.TvRageApi
             var rawResponse = _httpClient.Get(TvRageFeedUrls.CreateSearchUrl(query));    
             return SearchResultParser.Parse(rawResponse);
         }
+
+        public EpisodeList GetEpisodes(int showId)
+        {
+            var rawResponse = _httpClient.Get(TvRageFeedUrls.CreateEpisodeListUrl(showId));
+            return EpisodeListParser.Parse(rawResponse);
+        }
     }
 }
