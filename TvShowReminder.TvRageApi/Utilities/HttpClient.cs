@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Net;
 
-namespace TvShowReminder.TvRageApi
+namespace TvShowReminder.TvRageApi.Utilities
 {
     internal class HttpClient
     {

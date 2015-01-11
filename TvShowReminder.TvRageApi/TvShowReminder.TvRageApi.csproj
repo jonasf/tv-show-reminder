@@ -39,16 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Episode.cs" />
-    <Compile Include="EpisodeList.cs" />
-    <Compile Include="EpisodeListParser.cs" />
-    <Compile Include="HttpClient.cs" />
+    <Compile Include="Domain\Episode.cs" />
+    <Compile Include="Domain\EpisodeList.cs" />
+    <Compile Include="Domain\Show.cs" />
+    <Compile Include="Domain\SpecialEpisode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchResultParser.cs" />
-    <Compile Include="Show.cs" />
-    <Compile Include="SpecialEpisode.cs" />
     <Compile Include="TvRageFeedUrls.cs" />
     <Compile Include="TvRageService.cs" />
+    <Compile Include="Utilities\EpisodeListParser.cs" />
+    <Compile Include="Utilities\HttpClient.cs" />
+    <Compile Include="Utilities\SearchResultParser.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

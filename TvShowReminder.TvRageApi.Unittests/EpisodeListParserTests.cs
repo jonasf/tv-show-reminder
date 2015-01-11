@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using TvShowReminder.TvRageApi.Utilities;
 using Xunit;
 
 namespace TvShowReminder.TvRageApi.Unittests

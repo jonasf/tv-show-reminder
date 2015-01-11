@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TvShowReminder.TvRageApi
+namespace TvShowReminder.TvRageApi.Domain
 {
     public class EpisodeList
     {

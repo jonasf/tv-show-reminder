@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TvShowReminder.TvRageApi
+namespace TvShowReminder.TvRageApi.Domain
 {
     public class SpecialEpisode
     {

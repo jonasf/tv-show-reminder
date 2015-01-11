@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using TvShowReminder.TvRageApi.Domain;
+using TvShowReminder.TvRageApi.Utilities;
 
 namespace TvShowReminder.TvRageApi
 {

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using TvShowReminder.TvRageApi.Domain;
 
-namespace TvShowReminder.TvRageApi
+namespace TvShowReminder.TvRageApi.Utilities
 {
     public static class SearchResultParser
     {
