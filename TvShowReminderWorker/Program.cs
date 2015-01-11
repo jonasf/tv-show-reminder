@@ -9,7 +9,7 @@ namespace TvShowReminderWorker
         {
             Console.WriteLine("I am the web job, I ran at {0}", DateTime.Now);
 
-            JobHost host = new JobHost();
+            var host = new JobHost();
             host.RunAndBlock();
         }
     }
