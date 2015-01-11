@@ -5,6 +5,14 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder", "TvShowReminder\TvShowReminder.csproj", "{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi", "TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj", "{75089242-70BE-45AF-8B06-037921ACFDA5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2B000795-C3BB-4851-9EE0-512A59256E35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi.IntegrationTests", "TvShowReminder.TvRageApi.IntegrationTests\TvShowReminder.TvRageApi.IntegrationTests.csproj", "{6EA97F15-1FBC-49A0-9E35-2590664D6717}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi.Unittests", "TvShowReminder.TvRageApi.Unittests\TvShowReminder.TvRageApi.Unittests.csproj", "{29ED4A9A-384B-433A-BA5F-537A536FFBEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +23,24 @@ Global
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67AB0C6E-2BA2-4FE5-94B3-C2E8398FB696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75089242-70BE-45AF-8B06-037921ACFDA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75089242-70BE-45AF-8B06-037921ACFDA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75089242-70BE-45AF-8B06-037921ACFDA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75089242-70BE-45AF-8B06-037921ACFDA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA97F15-1FBC-49A0-9E35-2590664D6717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA97F15-1FBC-49A0-9E35-2590664D6717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA97F15-1FBC-49A0-9E35-2590664D6717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA97F15-1FBC-49A0-9E35-2590664D6717}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6EA97F15-1FBC-49A0-9E35-2590664D6717} = {2B000795-C3BB-4851-9EE0-512A59256E35}
+		{29ED4A9A-384B-433A-BA5F-537A536FFBEB} = {2B000795-C3BB-4851-9EE0-512A59256E35}
 	EndGlobalSection
 EndGlobal
