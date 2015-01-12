@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 using System.Web.Routing;
+using TvShowReminder.DatabaseMigrations;
 
 namespace TvShowReminder
 {
@@ -9,6 +11,9 @@ namespace TvShowReminder
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            ISqlDatabaseMigrator sqlDatabaseMigrator = new SqlDatabaseMigrator();
+            sqlDatabaseMigrator.MigrateToLatest(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
     }
 }

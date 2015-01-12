@@ -108,6 +108,12 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj">
+      <Project>{b99e3a33-95dd-4e36-bd7f-1f32e8443ac3}</Project>
+      <Name>TvShowReminder.DatabaseMigrations</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
