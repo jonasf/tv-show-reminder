@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi.Unittests", "TvShowReminder.TvRageApi.Unittests\TvShowReminder.TvRageApi.Unittests.csproj", "{29ED4A9A-384B-433A-BA5F-537A536FFBEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DatabaseMigrations", "TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj", "{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29ED4A9A-384B-433A-BA5F-537A536FFBEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
