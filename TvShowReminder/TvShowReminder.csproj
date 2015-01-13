@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Static\Style\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
