@@ -15,6 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.TvRageApi.Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DatabaseMigrations", "TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj", "{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Service", "TvShowReminder.Service\TvShowReminder.Service.csproj", "{20E3BE97-FAB2-4A4D-BC54-DDDAE1750F85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Unittests", "TvShowReminder.Unittests\TvShowReminder.Unittests.csproj", "{45AB3CF2-E55B-4600-A66A-F8247B167315}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Model", "TvShowReminder.Model\TvShowReminder.Model.csproj", "{91180DC8-F1D5-419D-A493-E18B56EF195E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +47,18 @@ Global
 		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B99E3A33-95DD-4E36-BD7F-1F32E8443AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E3BE97-FAB2-4A4D-BC54-DDDAE1750F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E3BE97-FAB2-4A4D-BC54-DDDAE1750F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E3BE97-FAB2-4A4D-BC54-DDDAE1750F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E3BE97-FAB2-4A4D-BC54-DDDAE1750F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AB3CF2-E55B-4600-A66A-F8247B167315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AB3CF2-E55B-4600-A66A-F8247B167315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AB3CF2-E55B-4600-A66A-F8247B167315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AB3CF2-E55B-4600-A66A-F8247B167315}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,5 +66,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6EA97F15-1FBC-49A0-9E35-2590664D6717} = {2B000795-C3BB-4851-9EE0-512A59256E35}
 		{29ED4A9A-384B-433A-BA5F-537A536FFBEB} = {2B000795-C3BB-4851-9EE0-512A59256E35}
+		{45AB3CF2-E55B-4600-A66A-F8247B167315} = {2B000795-C3BB-4851-9EE0-512A59256E35}
 	EndGlobalSection
 EndGlobal

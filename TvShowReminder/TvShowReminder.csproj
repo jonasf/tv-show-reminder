@@ -96,11 +96,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup\Modules\DataSourceModule.cs" />
+    <Compile Include="Startup\Modules\ServiceModule.cs" />
     <Compile Include="Startup\Modules\StartupTaskModule.cs" />
     <Compile Include="Startup\Tasks\DatabaseMigrationTask.cs" />
   </ItemGroup>
@@ -113,6 +115,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Subscription\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -128,6 +131,18 @@
     <ProjectReference Include="..\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj">
       <Project>{b99e3a33-95dd-4e36-bd7f-1f32e8443ac3}</Project>
       <Name>TvShowReminder.DatabaseMigrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.Model\TvShowReminder.Model.csproj">
+      <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>
+      <Name>TvShowReminder.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.Service\TvShowReminder.Service.csproj">
+      <Project>{20e3be97-fab2-4a4d-bc54-dddae1750f85}</Project>
+      <Name>TvShowReminder.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj">
+      <Project>{75089242-70be-45af-8b06-037921acfda5}</Project>
+      <Name>TvShowReminder.TvRageApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

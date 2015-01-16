@@ -42,6 +42,7 @@ namespace TvShowReminder
             builder.RegisterFilterProvider();
 
             builder.RegisterModule(new DataSourceModule());
+            builder.RegisterModule(new ServiceModule());
             builder.RegisterModule(new StartupTaskModule());
 
             var container = builder.Build();
