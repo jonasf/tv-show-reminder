@@ -1,0 +1,31 @@
+﻿@model TvShowReminder.Models.SearchViewModel
+
+<h3 class="search-result-header">Sökresultat för "@Model.SearchWords", @Model.SearchHits träffar</h3>
+
+@if (Model.SearchHits > 0)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table" id="table">
+                <tbody>
+                    @foreach (var show in Model.TvShows)
+                    {
+                        <tr>
+                            <td>@show.Name</td>
+                            @if (show.EndedYear != 0)
+                            {
+                                <td>@show.StartedYear - @show.EndedYear</td>
+                            }
+                            else
+                            {
+                                <td>@show.StartedYear - </td>
+                            }
+                            <td><a href="@show.Link" target="_blank">Mer info.</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+}

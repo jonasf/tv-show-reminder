@@ -1,7 +1,28 @@
-﻿
+﻿@model TvShowReminder.Models.SearchViewModel
+
 @{
     ViewBag.Title = "Sök efter TV-serie";
 }
 
 <h1>Sök efter TV-serie</h1>
 
+@using (Html.BeginForm("Search", "Subscription", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="input-group search-input-group">
+                <input type="text" name="q" value="@Model.SearchWords" class="form-control" placeholder="Sök efter TV-serie">
+                <span class="input-group-addon">
+                    <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.HasSearch)
+{
+    Html.RenderPartial("_SearchHits", Model);
+}
