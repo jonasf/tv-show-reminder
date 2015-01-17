@@ -7,5 +7,6 @@
         public string Link { get; set; }
         public int StartedYear { get; set; }
         public int EndedYear { get; set; }
+        public bool IsSubscribed { get; set; }
     }
 }

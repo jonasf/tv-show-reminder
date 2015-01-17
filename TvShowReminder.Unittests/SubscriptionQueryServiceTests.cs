@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using NSubstitute;
+using TvShowReminder.DataSource;
 using TvShowReminder.Model.Query;
 using TvShowReminder.Service;
 using TvShowReminder.TvRageApi;
@@ -13,14 +14,16 @@ namespace TvShowReminder.Unittests
     {
         private readonly SubscriptionQueryService _subscriptionQueryService;
         private readonly ITvRageService _tvRageService;
+        private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
 
-        private Show _show1;
-        private Show _show2;
+        private readonly Show _show1;
+        private readonly Show _show2;
 
         public SubscriptionQueryServiceTests()
         {
             _tvRageService = Substitute.For<ITvRageService>();
-            _subscriptionQueryService = new SubscriptionQueryService(_tvRageService);
+            _subscriptionQueryDataSource = Substitute.For<ISubscriptionQueryDataSource>();
+            _subscriptionQueryService = new SubscriptionQueryService(_tvRageService, _subscriptionQueryDataSource);
 
             _show1 = CreateShow1();
             _show2 = CreateShow2();
@@ -58,6 +61,18 @@ namespace TvShowReminder.Unittests
             Assert.Equal(_show2.Link, show2.Link);
             Assert.Equal(_show2.Started, show2.StartedYear);
             Assert.Equal(_show2.Ended, show2.EndedYear);
+        }
+
+        [Fact]
+        public void Should_flag_already_subscribed_show()
+        {
+            const string query = "The awesome show";
+            _tvRageService.Search(query).Returns(CreateApiResponse());
+            _subscriptionQueryDataSource.GetAllSubscriptionIds().Returns(new List<int> {555, 888, 999});
+
+            var result = _subscriptionQueryService.Search(new SearchTvShowQuery { Query = query });
+            var show1 = result.TvShows.First();
+            Assert.Equal(true, show1.IsSubscribed);
         }
 
         private IEnumerable<Show> CreateApiResponse()

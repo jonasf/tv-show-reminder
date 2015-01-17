@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
 using Dapper;
 
 namespace TvShowReminder.DataSource
@@ -9,9 +8,9 @@ namespace TvShowReminder.DataSource
     {
         private readonly IDbConnection _connection;
 
-        public SubscriptionCommandDataSource(string connectionstring)
+        public SubscriptionCommandDataSource(IDbConnection connection)
         {
-            _connection = new SqlConnection(connectionstring);
+            _connection = connection;
         }
 
         public void Insert(int showId, string showName, DateTime lastAirDate)

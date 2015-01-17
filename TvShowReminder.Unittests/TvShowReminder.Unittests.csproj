@@ -52,6 +52,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj">
+      <Project>{b8b3f7e5-e4b7-4b9b-970b-03ef16b25eb9}</Project>
+      <Name>TvShowReminder.DataSource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TvShowReminder.Model\TvShowReminder.Model.csproj">
       <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>
       <Name>TvShowReminder.Model</Name>
