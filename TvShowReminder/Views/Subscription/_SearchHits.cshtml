@@ -21,6 +21,16 @@
                                 <td>@show.StartedYear - </td>
                             }
                             <td><a href="@show.Link" target="_blank">Mer info.</a></td>
+                            <td>
+                                @using (Html.BeginForm("Add", "Subscription"))
+                                {
+                                    <input type="hidden" name="showId" value="@show.Id" />
+                                    <input type="hidden" name="showName" value="@show.Name" />
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                }
+                            </td>
                         </tr>
                     }
                 </tbody>

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Unittests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Model", "TvShowReminder.Model\TvShowReminder.Model.csproj", "{91180DC8-F1D5-419D-A493-E18B56EF195E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DataSource", "TvShowReminder.DataSource\TvShowReminder.DataSource.csproj", "{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91180DC8-F1D5-419D-A493-E18B56EF195E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

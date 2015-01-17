@@ -118,6 +118,7 @@
     </Content>
     <Content Include="Views\Subscription\Search.cshtml" />
     <Content Include="Views\Subscription\_SearchHits.cshtml" />
+    <Content Include="Views\Subscription\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,6 +133,10 @@
     <ProjectReference Include="..\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj">
       <Project>{b99e3a33-95dd-4e36-bd7f-1f32e8443ac3}</Project>
       <Name>TvShowReminder.DatabaseMigrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj">
+      <Project>{b8b3f7e5-e4b7-4b9b-970b-03ef16b25eb9}</Project>
+      <Name>TvShowReminder.DataSource</Name>
     </ProjectReference>
     <ProjectReference Include="..\TvShowReminder.Model\TvShowReminder.Model.csproj">
       <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>

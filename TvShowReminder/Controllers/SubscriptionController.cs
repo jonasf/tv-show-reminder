@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using TvShowReminder.Model.Command;
 using TvShowReminder.Model.Query;
 using TvShowReminder.Models;
 using TvShowReminder.Service;
@@ -9,10 +10,13 @@ namespace TvShowReminder.Controllers
     public class SubscriptionController : Controller
     {
         private readonly ISubscriptionQueryService _subscriptionQueryService;
+        private readonly ISubscriptionCommandService _subscriptionCommandService;
 
-        public SubscriptionController(ISubscriptionQueryService subscriptionQueryService)
+        public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
+                                        ISubscriptionCommandService subscriptionCommandService)
         {
             _subscriptionQueryService = subscriptionQueryService;
+            _subscriptionCommandService = subscriptionCommandService;
         }
 
         public ActionResult Search(string q)
@@ -29,6 +33,19 @@ namespace TvShowReminder.Controllers
             }
 
             return View(searchViewModel);
+        }
+
+        public ActionResult Add(int showId, string showName)
+        {
+            var command = new AddSubscriptionCommand
+            {
+                ShowId = showId,
+                ShowName = showName
+            };
+
+            _subscriptionCommandService.AddSubscription(command);
+
+            return View();
         }
 
         private bool HasSearchParameters(string query)
