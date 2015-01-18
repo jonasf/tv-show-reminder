@@ -8,54 +8,66 @@ namespace TvShowReminder.TvRageApi.Utilities
 {
     public class EpisodeListParser
     {
-        public static EpisodeList Parse(string rawXml)
+        public static TvRageEpisodeList Parse(string rawXml)
         {
             var xDoc = XDocument.Parse(rawXml);
 
             if (xDoc.Root == null)
-                return new EpisodeList { Episodes = new List<Episode>(), SpecialEpisodes = new List<SpecialEpisode>() };
+                return new TvRageEpisodeList { Episodes = new List<TvRageEpisode>(), SpecialEpisodes = new List<TvRageSpecialEpisode>() };
 
             var episodes = ParseEpisodes(rawXml);
             var specialEpisodes = ParseSpecialEpisodes(rawXml);
 
-            return new EpisodeList
+            return new TvRageEpisodeList
             {
                 Episodes = episodes,
                 SpecialEpisodes = specialEpisodes
             };
         }
 
-        private static IEnumerable<Episode> ParseEpisodes(string rawXml)
+        private static IEnumerable<TvRageEpisode> ParseEpisodes(string rawXml)
         {
             var xDoc = XDocument.Parse(rawXml);
 
             var seasons = xDoc.Root.Descendants("Season");
             return seasons
                     .Elements("episode")
-                    .Select(x => new Episode
+                    .Select(x => new TvRageEpisode
                     {
                         EpNum = (int)x.Element("epnum"),
                         SeasonNum = (int)x.Element("seasonnum"),
                         ProdNum = (string)x.Element("prodnum"),
-                        AirDate = DateTime.Parse((string)x.Element("airdate")),
+                        AirDate = ParseDate((string)x.Element("airdate")),
                         Link = (string)x.Element("link"),
                         Title = (string)x.Element("title")
                     });
         }
 
-        private static IEnumerable<SpecialEpisode> ParseSpecialEpisodes(string rawXml)
+        private static IEnumerable<TvRageSpecialEpisode> ParseSpecialEpisodes(string rawXml)
         {
             var xDoc = XDocument.Parse(rawXml);
             var specials = xDoc.Root.Descendants("Special");
             return specials
                     .Elements("episode")
-                    .Select(x => new SpecialEpisode
+                    .Select(x => new TvRageSpecialEpisode
                     {
                         Season = (int)x.Element("season"),
-                        AirDate = DateTime.Parse((string)x.Element("airdate")),
+                        AirDate = ParseDate((string)x.Element("airdate")),
                         Link = (string)x.Element("link"),
                         Title = (string)x.Element("title")
                     });
+        }
+
+        private static DateTime ParseDate(string dateString)
+        {
+            try
+            {
+                return DateTime.Parse(dateString);
+            }
+            catch (Exception)
+            {
+                return DateTime.MinValue;
+            }
         }
     }
 }

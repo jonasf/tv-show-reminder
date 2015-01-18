@@ -11,6 +11,7 @@ namespace TvShowReminder.Startup.Modules
             builder.RegisterType<TvRageService>().As<ITvRageService>();
             builder.RegisterType<SubscriptionQueryService>().As<ISubscriptionQueryService>();
             builder.RegisterType<SubscriptionCommandService>().As<ISubscriptionCommandService>();
+            builder.RegisterType<EpisodesCommandService>().As<IEpisodesCommandService>();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TvShowReminder.TvRageApi.Domain
 {
-    public class SpecialEpisode
+    public class TvRageSpecialEpisode
     {
         public int Season { get; set; }
         public DateTime AirDate { get; set; }

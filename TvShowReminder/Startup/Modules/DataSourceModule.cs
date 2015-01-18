@@ -17,6 +17,7 @@ namespace TvShowReminder.Startup.Modules
             builder.Register(c => new SqlDatabaseMigrator(connectionString)).As<ISqlDatabaseMigrator>();
             builder.Register(c => new SubscriptionCommandDataSource(dbConnection)).As<ISubscriptionCommandDataSource>();
             builder.Register(c => new SubscriptionQueryDataSource(dbConnection)).As<ISubscriptionQueryDataSource>();
+            builder.Register(c => new EpisodeCommandDataSource(dbConnection)).As<IEpisodeCommandDataSource>();
         }
     }
 }

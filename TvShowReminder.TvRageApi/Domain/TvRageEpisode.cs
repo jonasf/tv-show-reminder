@@ -2,7 +2,7 @@
 
 namespace TvShowReminder.TvRageApi.Domain
 {
-    public class Episode
+    public class TvRageEpisode
     {
         public int EpNum { get; set; }
         public int SeasonNum { get; set; }

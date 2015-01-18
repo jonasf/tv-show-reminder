@@ -17,5 +17,10 @@ namespace TvShowReminder.DataSource
         {
             _connection.Execute("INSERT INTO Subscription (TvShowId, TvShowName, LastAirDate) VALUES (@tvShowId, @tvShowName, @lastAirDate)", new { tvShowId = showId, tvShowName = showName, lastAirDate = lastAirDate });
         }
+
+        public void SaveLastAirDate(int subscriptionId, DateTime lastAirDate)
+        {
+            _connection.Execute("UPDATE Subscription SET LastAirDate=@lastAirDate WHERE id=@subscriptionId", new {subscriptionId, lastAirDate});
+        }
     }
 }
