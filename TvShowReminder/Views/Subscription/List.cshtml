@@ -1,0 +1,26 @@
+﻿@model TvShowReminder.Models.SubscriptionsListViewModel
+
+@{
+    ViewBag.Title = "Lista över prenumerationer";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>TV-program</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var subscriptions in Model.Subscriptions)
+                {
+                    <tr>
+                        <td>@subscriptions.TvShowName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>

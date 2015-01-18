@@ -48,6 +48,17 @@ namespace TvShowReminder.Controllers
             return View();
         }
 
+        public ActionResult List()
+        {
+            var result = _subscriptionQueryService.GetAll();
+            var viewModel = new SubscriptionsListViewModel
+            {
+                Subscriptions = result.Subscriptions.OrderBy(s => s.TvShowName)
+            };
+
+            return View(viewModel);
+        }
+
         private bool HasSearchParameters(string query)
         {
             return !string.IsNullOrEmpty(query);

@@ -41,6 +41,14 @@ namespace TvShowReminder.Service
             };
         }
 
+        public GetAllSubscriptionsResult GetAll()
+        {
+            return new GetAllSubscriptionsResult
+            {
+                Subscriptions = _subscriptionQueryDataSource.GetAllSubscriptions()
+            };
+        }
+
         private bool CheckIfSubscribed(List<int> subscribedShows, int showId)
         {
             return subscribedShows.Contains(showId);
