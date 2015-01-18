@@ -34,6 +34,7 @@ namespace TvShowReminder.TvRageApi.Utilities
                     .Elements("episode")
                     .Select(x => new TvRageEpisode
                     {
+                        Season = (int)x.Parent.Attribute("no"),
                         EpNum = (int)x.Element("epnum"),
                         SeasonNum = (int)x.Element("seasonnum"),
                         ProdNum = (string)x.Element("prodnum"),

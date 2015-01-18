@@ -5,6 +5,7 @@ namespace TvShowReminder.TvRageApi.Domain
     public class TvRageEpisode
     {
         public int EpNum { get; set; }
+        public int Season { get; set; }
         public int SeasonNum { get; set; }
         public string ProdNum { get; set; }
         public DateTime AirDate { get; set; }

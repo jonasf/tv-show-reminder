@@ -107,8 +107,8 @@ namespace TvShowReminder.Service
                 .Select(episode => new Episode
                 {
                     SubscriptionId = subscriptionId,
-                    SeasonNumber = episode.SeasonNum,
-                    EpisodeNumber = episode.EpNum,
+                    SeasonNumber = episode.Season,
+                    EpisodeNumber = episode.SeasonNum,
                     AirDate = episode.AirDate.Date,
                     Title = episode.Title
                 }).ToList();

@@ -41,6 +41,23 @@ namespace TvShowReminder.TvRageApi.Unittests
             Assert.Equal("Born Again : Children in Need", item.Title);
         }
 
+        [Fact]
+        public void Should_map_seasons_correctly()
+        {
+            var result = EpisodeListParser.Parse(GetXmlTestData());
+            var item = result.Episodes.First();
+            var item2 = result.Episodes.ElementAt(1);
+            var item3 = result.Episodes.ElementAt(2);
+            var item4 = result.Episodes.ElementAt(3);
+            var item5 = result.Episodes.ElementAt(4);
+
+            Assert.Equal(1, item.Season);
+            Assert.Equal(1, item2.Season);
+            Assert.Equal(2, item3.Season);
+            Assert.Equal(2, item4.Season);
+            Assert.Equal(2, item5.Season);
+        }
+
         private string GetXmlTestData()
         {
             return @"<Show>
