@@ -20,7 +20,7 @@ namespace TvShowReminder.Controllers
         public ActionResult UpdateAll()
         {
             _episodesCommandService.UpdateEpisodeList();
-            return View("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
