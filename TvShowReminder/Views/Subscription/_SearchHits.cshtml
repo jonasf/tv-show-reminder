@@ -6,7 +6,7 @@
 {
     <div class="row">
         <div class="col-lg-12">
-            <table class="table" id="table">
+            <table class="table table-striped" id="table">
                 <tbody>
                     @foreach (var show in Model.TvShows)
                     {
@@ -26,18 +26,19 @@
                                 {
                                     using (Html.BeginForm("Add", "Subscription"))
                                     {
-                                         <input type="hidden" name="showId" value="@show.Id" />
-                                         <input type="hidden" name="showName" value="@show.Name" />
-                                         <button type="submit">
-                                             <span class="glyphicon glyphicon-plus"></span>
-                                         </button>
-                                     }
+                                        <input type="hidden" name="showId" value="@show.Id" />
+                                        <input type="hidden" name="showName" value="@show.Name" />
+                                        <button type="submit">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    }
                                 }
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
+
             <hr>
         </div>
     </div>

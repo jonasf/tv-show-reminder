@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EpisodesCommandService.cs" />
+    <Compile Include="EpisodesQueryService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />
+    <Compile Include="IEpisodesQueryService.cs" />
     <Compile Include="ISubscriptionCommandService.cs" />
     <Compile Include="ISubscriptionQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

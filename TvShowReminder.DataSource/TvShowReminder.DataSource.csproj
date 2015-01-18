@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EpisodeCommandDataSource.cs" />
+    <Compile Include="EpisodesQueryDataSource.cs" />
     <Compile Include="IEpisodeCommandDataSource.cs" />
+    <Compile Include="IEpisodesQueryDataSource.cs" />
     <Compile Include="ISubscriptionCommandDataSource.cs" />
     <Compile Include="ISubscriptionQueryDataSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
