@@ -21,3 +21,7 @@
 .search-result-header {
     padding-top: 25px;
 }
+
+.login-form .input-group {
+    margin-bottom: 25px
+}

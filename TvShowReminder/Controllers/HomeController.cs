@@ -7,6 +7,7 @@ using TvShowReminder.Service;
 
 namespace TvShowReminder.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IEpisodesCommandService _episodesCommandService;

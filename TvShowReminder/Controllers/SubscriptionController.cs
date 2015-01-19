@@ -7,6 +7,7 @@ using TvShowReminder.Service;
 
 namespace TvShowReminder.Controllers
 {
+    [Authorize]
     public class SubscriptionController : Controller
     {
         private readonly ISubscriptionQueryService _subscriptionQueryService;
