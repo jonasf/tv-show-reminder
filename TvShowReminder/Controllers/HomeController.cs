@@ -31,6 +31,16 @@ namespace TvShowReminder.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public ActionResult Delete(int[] episodeIds)
+        {
+            if (episodeIds != null)
+            {
+                _episodesCommandService.DeleteEpisodes(episodeIds);
+            }
+            return RedirectToAction("Index", "Home");       
+        }
+
         public ActionResult UpdateAll()
         {
             _episodesCommandService.UpdateEpisodeList();

@@ -18,5 +18,10 @@ namespace TvShowReminder.DataSource
             _connection.Execute("INSERT INTO Episodes (SubscriptionId, SeasonNumber, EpisodeNumber, Title, AirDate) VALUES (@subscriptionId, @seasonNumber, @episodeNumber, @title, @airDate)", 
                 new { subscriptionId = episode.SubscriptionId, seasonNumber = episode.SeasonNumber, episodeNumber = episode.EpisodeNumber, title = episode.Title, airDate = episode.AirDate });
         }
+
+        public void DeleteEpisode(int episodeId)
+        {
+            _connection.Execute("DELETE FROM Episodes WHERE Id = @Id", new { Id = episodeId});
+        }
     }
 }

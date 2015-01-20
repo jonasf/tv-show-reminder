@@ -10,26 +10,30 @@
 {
     <div class="row">
         <div class="col-lg-12">
-            <table class="table table-striped" id="table">
-                <tbody>
-                    @foreach (var episode in Model.EpisodeList)
-                    {
-                        <tr>
-                            <td>@episode.Episode.AirDate.ToString("yyyy-MM-dd")</td>
-                            @if (episode.Episode.EpisodeNumber == 0)
-                            {
-                                <td>@episode.Subscription.TvShowName @string.Format("{0}xSpecial", episode.Episode.SeasonNumber)</td>
-                            }
-                            else
-                            {
-                                <td>@episode.Subscription.TvShowName @string.Format("{0}x{1}", episode.Episode.SeasonNumber, episode.Episode.EpisodeNumber)</td>
-                            }
-                            <td>@episode.Episode.Title</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            <hr>
+            @using (Html.BeginForm("Delete", "Home"))
+            {
+                <table class="table table-striped" id="table">
+                    <tbody>
+                        @foreach (var episode in Model.EpisodeList)
+                        {
+                            <tr>
+                                <td><input type="checkbox" name="episodeIds" value="@episode.Episode.Id" /></td>
+                                <td>@episode.Episode.AirDate.ToString("yyyy-MM-dd")</td>
+                                @if (episode.Episode.EpisodeNumber == 0)
+                                {
+                                    <td>@episode.Subscription.TvShowName @string.Format("{0}xSpecial", episode.Episode.SeasonNumber)</td>
+                                }
+                                else
+                                {
+                                    <td>@episode.Subscription.TvShowName @string.Format("{0}x{1}", episode.Episode.SeasonNumber, episode.Episode.EpisodeNumber)</td>
+                                }
+                                <td>@episode.Episode.Title</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button type="submit" class="btn btn-primary">Radera</button>
+            }
         </div>
     </div>
 }

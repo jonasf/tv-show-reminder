@@ -34,6 +34,14 @@ namespace TvShowReminder.Service
             }
         }
 
+        public void DeleteEpisodes(int[] episodeIds)
+        {
+            foreach (var episodeId in episodeIds)
+            {
+                _episodeCommandDataSource.DeleteEpisode(episodeId);
+            }
+        }
+
         private DateTime? UpdateEpisodesForSubscription(Subscription subscription)
         {
             var episodeList = _tvRageService.GetEpisodes(subscription.TvShowId);
