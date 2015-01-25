@@ -124,6 +124,7 @@
     <Content Include="Views\Subscription\Add.cshtml" />
     <Content Include="Views\Subscription\List.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Subscription\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

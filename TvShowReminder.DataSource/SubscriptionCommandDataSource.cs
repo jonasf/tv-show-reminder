@@ -22,5 +22,10 @@ namespace TvShowReminder.DataSource
         {
             _connection.Execute("UPDATE Subscription SET LastAirDate=@lastAirDate WHERE id=@subscriptionId", new {subscriptionId, lastAirDate});
         }
+
+        public void Delete(int subscriptionId)
+        {
+            _connection.Execute("DELETE FROM Subscription WHERE id=@subscriptionId", new {subscriptionId});
+        }
     }
 }

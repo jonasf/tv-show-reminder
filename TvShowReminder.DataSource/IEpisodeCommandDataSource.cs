@@ -6,5 +6,6 @@ namespace TvShowReminder.DataSource
     {
         void SaveEpisode(Episode episode);
         void DeleteEpisode(int episodeId);
+        void DeleteAllFromSubscription(int subscriptionId);
     }
 }

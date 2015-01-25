@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using TvShowReminder.DatabaseMigrations;
 using TvShowReminder.Model.Command;
 using TvShowReminder.Model.Query;
 using TvShowReminder.Models;
@@ -45,6 +46,19 @@ namespace TvShowReminder.Controllers
             };
 
             _subscriptionCommandService.AddSubscription(command);
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int subscriptionId)
+        {
+            var command = new DeleteSubscriptionCommand
+            {
+                SubscriptionId = subscriptionId
+            };
+
+            _subscriptionCommandService.DeleteSubscription(command);
 
             return View();
         }

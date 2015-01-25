@@ -6,5 +6,6 @@ namespace TvShowReminder.DataSource
     {
         void Insert(int showId, string showName, DateTime lastAirDate);
         void SaveLastAirDate(int subscriptionId, DateTime lastAirDate);
+        void Delete(int subscriptionId);
     }
 }

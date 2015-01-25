@@ -23,5 +23,10 @@ namespace TvShowReminder.DataSource
         {
             _connection.Execute("DELETE FROM Episodes WHERE Id = @Id", new { Id = episodeId});
         }
+
+        public void DeleteAllFromSubscription(int subscriptionId)
+        {
+            _connection.Execute("DELETE FROM Episodes WHERE SubscriptionId = @subscriptionId", new { subscriptionId });
+        }
     }
 }

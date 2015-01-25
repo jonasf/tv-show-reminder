@@ -13,10 +13,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var subscriptions in Model.Subscriptions)
+                @foreach (var subscription in Model.Subscriptions)
                 {
                     <tr>
-                        <td>@subscriptions.TvShowName</td>
+                        <td>@subscription.TvShowName</td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "Subscription"))
+                            {
+                                <input type="hidden" name="subscriptionId" value="@subscription.Id" />
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>
