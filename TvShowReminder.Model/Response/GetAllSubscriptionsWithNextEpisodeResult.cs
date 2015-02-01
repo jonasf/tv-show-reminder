@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using TvShowReminder.Model.Dto;
 
-namespace TvShowReminder.Models
+namespace TvShowReminder.Model.Response
 {
-    public class SubscriptionsListViewModel
+    public class GetAllSubscriptionsWithNextEpisodeResult
     {
         public IEnumerable<SubscriptionWithNextEpisodeDto> Subscriptions { get; set; }
     }

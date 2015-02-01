@@ -45,11 +45,12 @@
     <Compile Include="Dto\EpisodesToDateResult.cs" />
     <Compile Include="Dto\EpisodeWithSubscriptionInfoDto.cs" />
     <Compile Include="Dto\Subscription.cs" />
+    <Compile Include="Dto\SubscriptionWithNextEpisodeDto.cs" />
     <Compile Include="Dto\TvShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\EpisodesToDateQuery.cs" />
     <Compile Include="Query\SearchTvShowQuery.cs" />
-    <Compile Include="Response\GetAllSubscriptionsResult.cs" />
+    <Compile Include="Response\GetAllSubscriptionsWithNextEpisodeResult.cs" />
     <Compile Include="Response\SearchTvShowResult.cs" />
   </ItemGroup>
   <ItemGroup />

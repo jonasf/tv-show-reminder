@@ -1,8 +1,11 @@
-﻿@model TvShowReminder.Models.SubscriptionsListViewModel
+﻿@using System.Globalization
+@model TvShowReminder.Models.SubscriptionsListViewModel
 
 @{
     ViewBag.Title = "Lista över prenumerationer";
 }
+
+<h1>Prenumerationer</h1>
 
 <div class="row">
     <div class="col-lg-12">
@@ -10,6 +13,7 @@
             <thead>
                 <tr>
                     <th>TV-program</th>
+                    <th>Nästa avsnitt</th>
                     <th>&nbsp;</th>
                 </tr>
             </thead>
@@ -17,11 +21,19 @@
                 @foreach (var subscription in Model.Subscriptions)
                 {
                     <tr>
-                        <td>@subscription.TvShowName</td>
+                        <td>@subscription.Subscription.TvShowName</td>
+                        <td>
+                            @if (subscription.NextEpisode != null)
+                            {
+                                <span>
+                                    @subscription.NextEpisode.AirDate.ToString("dddd", new CultureInfo("sv-SE")) @subscription.NextEpisode.AirDate.Day/@subscription.NextEpisode.AirDate.Month (@subscription.NextEpisode.Title)
+                                </span>
+                            }
+                        </td>
                         <td>
                             @using (Html.BeginForm("Delete", "Subscription"))
                             {
-                                <input type="hidden" name="subscriptionId" value="@subscription.Id" />
+                                <input type="hidden" name="subscriptionId" value="@subscription.Subscription.Id" />
                                 <button type="submit">
                                     <span class="glyphicon glyphicon-minus"></span>
                                 </button>

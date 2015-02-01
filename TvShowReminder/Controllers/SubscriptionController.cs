@@ -65,10 +65,10 @@ namespace TvShowReminder.Controllers
 
         public ActionResult List()
         {
-            var result = _subscriptionQueryService.GetAll();
+            var result = _subscriptionQueryService.GetAllWithNextEpisode();
             var viewModel = new SubscriptionsListViewModel
             {
-                Subscriptions = result.Subscriptions.OrderBy(s => s.TvShowName)
+                Subscriptions = result.Subscriptions.OrderBy(s => s.Subscription.TvShowName)
             };
 
             return View(viewModel);

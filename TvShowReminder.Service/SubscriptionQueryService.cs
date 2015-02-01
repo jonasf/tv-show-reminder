@@ -12,12 +12,15 @@ namespace TvShowReminder.Service
     {
         private readonly ITvRageService _tvRageService;
         private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
+        private readonly IEpisodesQueryDataSource _episodesQueryDataSource;
 
-        public SubscriptionQueryService(ITvRageService tvRageService, 
-                                        ISubscriptionQueryDataSource subscriptionQueryDataSource)
+        public SubscriptionQueryService(ITvRageService tvRageService,   
+                                        ISubscriptionQueryDataSource subscriptionQueryDataSource, 
+                                        IEpisodesQueryDataSource episodesQueryDataSource)
         {
             _tvRageService = tvRageService;
             _subscriptionQueryDataSource = subscriptionQueryDataSource;
+            _episodesQueryDataSource = episodesQueryDataSource;
         }
 
         public SearchTvShowResult Search(SearchTvShowQuery searchTvShowQuery)
@@ -41,11 +44,23 @@ namespace TvShowReminder.Service
             };
         }
 
-        public GetAllSubscriptionsResult GetAll()
+        public GetAllSubscriptionsWithNextEpisodeResult GetAllWithNextEpisode()
         {
-            return new GetAllSubscriptionsResult
+            var subscriptions = _subscriptionQueryDataSource.GetAllSubscriptions();
+
+            var result = new List<SubscriptionWithNextEpisodeDto>();
+            foreach (var subscription in subscriptions)
             {
-                Subscriptions = _subscriptionQueryDataSource.GetAllSubscriptions()
+                result.Add(new SubscriptionWithNextEpisodeDto
+                {
+                    Subscription = subscription,
+                    NextEpisode = _episodesQueryDataSource.GetNextEpisode(subscription.Id)
+                });
+            }
+
+            return new GetAllSubscriptionsWithNextEpisodeResult
+            {
+                Subscriptions = result
             };
         }
 
