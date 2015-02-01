@@ -14,7 +14,7 @@ namespace TvShowReminder.Unittests
     {
         private readonly EpisodesCommandService _episodesCommandService;
 
-        private ISubscriptionQueryDataSource _subscriptionQueryDataSource;
+        private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
         private readonly ISubscriptionCommandDataSource _subscriptionCommandDataSource;
         private readonly IEpisodeCommandDataSource _episodeCommandDataSource;
         private readonly ITvRageService _tvRageService;
@@ -51,10 +51,6 @@ namespace TvShowReminder.Unittests
             _specialEpisode1 = CreateSpecialEpisode(2, "Special stuff", DateTime.Now.AddDays(1).Date);
             _specialEpisode2 = CreateSpecialEpisode(1, "Stuff 2 Special", DateTime.Now.AddDays(-2).Date);
             _specialEpisode3 = CreateSpecialEpisode(1, "Stuff 2 Special 2", DateTime.Now.AddDays(-4).Date);
-
-            //_subscriptionQueryDataSource.GetAllSubscriptions().Returns(CreateSubscriptionList());
-            //_tvRageService.GetEpisodes(555).Returns(CreateEpisodeList1());
-            //_tvRageService.GetEpisodes(666).Returns(CreateEpisodeList2());
 
             _episodesCommandService = new EpisodesCommandService(_subscriptionQueryDataSource, _subscriptionCommandDataSource, _episodeCommandDataSource, _tvRageService);
         }
@@ -101,21 +97,12 @@ namespace TvShowReminder.Unittests
 
         private TvRageEpisode CreateRegularEpisode(int seasonNumber, int episodeNumber, string title, DateTime airDate)
         {
-            return new TvRageEpisode { SeasonNum = seasonNumber, EpNum = episodeNumber, Title = title, AirDate = airDate};
+            return new TvRageEpisode { Season = seasonNumber, SeasonNum = episodeNumber, Title = title, AirDate = airDate};
         }
 
         private Subscription CreateSubscription(int id, int tvShowId, string tvShowName, DateTime lastAirDate)
         {
             return new Subscription { Id = id, TvShowId = tvShowId, TvShowName = tvShowName, LastAirDate = lastAirDate };
-        }
-
-        private TvRageEpisodeList CreateEpisodeList2()
-        {
-            return new TvRageEpisodeList
-            {
-                Episodes = new List<TvRageEpisode> { _regularEpisode3, _regularEpisode4, _regularEpisode5 },
-                SpecialEpisodes = new List<TvRageSpecialEpisode> { _specialEpisode2, _specialEpisode3 }
-            };
         }
 
         private TvRageEpisodeList CreateEpisodeList1()
@@ -127,10 +114,13 @@ namespace TvShowReminder.Unittests
             };
         }
 
-
-        private IEnumerable<Subscription> CreateSubscriptionList()
+        private TvRageEpisodeList CreateEpisodeList2()
         {
-            return new List<Subscription> { _subscription1, _subscription2 };
+            return new TvRageEpisodeList
+            {
+                Episodes = new List<TvRageEpisode> { _regularEpisode3, _regularEpisode4, _regularEpisode5 },
+                SpecialEpisodes = new List<TvRageSpecialEpisode> { _specialEpisode2, _specialEpisode3 }
+            };
         }
     }
 }
