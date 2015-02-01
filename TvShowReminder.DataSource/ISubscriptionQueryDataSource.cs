@@ -7,5 +7,6 @@ namespace TvShowReminder.DataSource
     {
         IEnumerable<int> GetAllSubscriptionIds();
         IEnumerable<Subscription> GetAllSubscriptions();
+        Subscription GetSubscription(int subscriptionId);
     }
 }

@@ -15,6 +15,7 @@
                     <th>TV-program</th>
                     <th>Nästa avsnitt</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,8 +27,17 @@
                             @if (subscription.NextEpisode != null)
                             {
                                 <span>
-                                    @subscription.NextEpisode.AirDate.ToString("dddd", new CultureInfo("sv-SE")) @subscription.NextEpisode.AirDate.Day/@subscription.NextEpisode.AirDate.Month (@subscription.NextEpisode.Title)
+                                    @subscription.NextEpisode.AirDate.ToString("dddd", CultureInfo.CurrentUICulture) @subscription.NextEpisode.AirDate.Day/@subscription.NextEpisode.AirDate.Month (@subscription.NextEpisode.Title)
                                 </span>
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("RefreshEpisodesForSubscription", "Subscription"))
+                            {
+                                <input type="hidden" name="subscriptionId" value="@subscription.Subscription.Id" />
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-refresh"></span>
+                                </button>
                             }
                         </td>
                         <td>

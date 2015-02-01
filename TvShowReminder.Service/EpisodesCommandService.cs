@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TvShowReminder.DataSource;
+using TvShowReminder.Model.Command;
 using TvShowReminder.Model.Dto;
 using TvShowReminder.TvRageApi;
 using TvShowReminder.TvRageApi.Domain;
@@ -32,6 +33,18 @@ namespace TvShowReminder.Service
                 if(lastAirDate != null)
                     _subscriptionCommandDataSource.SaveLastAirDate(subscription.Id, lastAirDate.Value.Date);
             }
+        }
+
+        public void RefreshEpisodes(RefreshEpisodesCommand command)
+        {
+            var subscription = _subscriptionQueryDataSource.GetSubscription(command.SubscriptionId);
+            subscription.LastAirDate = DateTime.Now.Date;
+
+            _episodeCommandDataSource.DeleteAllFromSubscription(command.SubscriptionId);
+           
+            var lastAirDate = UpdateEpisodesForSubscription(subscription);
+            if (lastAirDate != null)
+                _subscriptionCommandDataSource.SaveLastAirDate(subscription.Id, lastAirDate.Value.Date);
         }
 
         public void DeleteEpisodes(int[] episodeIds)

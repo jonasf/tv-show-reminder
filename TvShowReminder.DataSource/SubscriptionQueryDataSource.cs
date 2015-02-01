@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Dapper;
 using TvShowReminder.Model.Dto;
 
@@ -21,6 +22,11 @@ namespace TvShowReminder.DataSource
         public IEnumerable<Subscription> GetAllSubscriptions()
         {
             return _connection.Open(c => c.Query<Subscription>("SELECT Id, TvShowId, TvShowName, LastAirDate FROM Subscription"));
+        }
+
+        public Subscription GetSubscription(int subscriptionId)
+        {
+            return _connection.Open(c => c.Query<Subscription>("SELECT Id, TvShowId, TvShowName, LastAirDate FROM Subscription WHERE Id=@id", new { id = subscriptionId })).FirstOrDefault();
         }
     }
 }

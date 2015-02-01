@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TvShowReminder.DatabaseMigrations;
 using TvShowReminder.Model.Command;
 using TvShowReminder.Model.Query;
 using TvShowReminder.Models;
@@ -13,12 +12,15 @@ namespace TvShowReminder.Controllers
     {
         private readonly ISubscriptionQueryService _subscriptionQueryService;
         private readonly ISubscriptionCommandService _subscriptionCommandService;
+        private readonly IEpisodesCommandService _episodesCommandService;
 
         public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
-                                        ISubscriptionCommandService subscriptionCommandService)
+                                        ISubscriptionCommandService subscriptionCommandService,
+                                        IEpisodesCommandService episodesCommandService)
         {
             _subscriptionQueryService = subscriptionQueryService;
             _subscriptionCommandService = subscriptionCommandService;
+            _episodesCommandService = episodesCommandService;
         }
 
         public ActionResult Search(string q)
@@ -61,6 +63,18 @@ namespace TvShowReminder.Controllers
             _subscriptionCommandService.DeleteSubscription(command);
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult RefreshEpisodesForSubscription(int subscriptionId)
+        {
+            var command = new RefreshEpisodesCommand
+            {
+                SubscriptionId = subscriptionId
+            };
+            _episodesCommandService.RefreshEpisodes(command);
+
+            return RedirectToAction("List", "Subscription");
         }
 
         public ActionResult List()

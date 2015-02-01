@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NSubstitute;
 using TvShowReminder.DataSource;
+using TvShowReminder.Model.Command;
 using TvShowReminder.Model.Dto;
 using TvShowReminder.Service;
 using TvShowReminder.TvRageApi;
@@ -88,6 +89,20 @@ namespace TvShowReminder.Unittests
             _episodeCommandDataSource.DidNotReceive().SaveEpisode(Arg.Is<Episode>(s => s.SubscriptionId == 2 && s.SeasonNumber == 1 && s.EpisodeNumber == 3 && s.Title == "Stuff 2 Special 2" && s.AirDate == DateTime.Now.AddDays(-4).Date));
             
             _subscriptionCommandDataSource.SaveLastAirDate(2, DateTime.Now.AddDays(-1));
+        }
+
+        [Fact]
+        public void Should_refresh_episodes_for_show()
+        {
+            _subscriptionQueryDataSource.GetSubscription(1).Returns(_subscription1);
+            _tvRageService.GetEpisodes(555).Returns(CreateEpisodeList1());
+            var command = new RefreshEpisodesCommand {SubscriptionId = 1};
+
+            _episodesCommandService.RefreshEpisodes(command);
+
+            _episodeCommandDataSource.Received(2).SaveEpisode(Arg.Any<Episode>());
+            _episodeCommandDataSource.Received(1).DeleteAllFromSubscription(_subscription1.Id);
+            _subscriptionCommandDataSource.Received(1).SaveLastAirDate(_subscription1.Id, Arg.Any<DateTime>());
         }
 
         private TvRageSpecialEpisode CreateSpecialEpisode(int season, string title, DateTime airdate)

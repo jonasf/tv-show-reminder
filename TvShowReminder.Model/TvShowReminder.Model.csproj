@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Command\AddSubscriptionCommand.cs" />
     <Compile Include="Command\DeleteSubscriptionCommand.cs" />
+    <Compile Include="Command\RefreshEpisodesCommand.cs" />
     <Compile Include="Dto\Episode.cs" />
     <Compile Include="Dto\EpisodesToDateResult.cs" />
     <Compile Include="Dto\EpisodeWithSubscriptionInfoDto.cs" />
