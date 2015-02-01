@@ -1,6 +1,4 @@
 ﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using Autofac;
 using TvShowReminder.DatabaseMigrations;
 using TvShowReminder.DataSource;
@@ -12,13 +10,12 @@ namespace TvShowReminder.Startup.Modules
         protected override void Load(ContainerBuilder builder)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            IDbConnection dbConnection = new SqlConnection(connectionString);
-            
+            builder.Register(c => new DbConnectionHelper(connectionString)).As<IDbConnectionHelper>();
             builder.Register(c => new SqlDatabaseMigrator(connectionString)).As<ISqlDatabaseMigrator>();
-            builder.Register(c => new SubscriptionCommandDataSource(dbConnection)).As<ISubscriptionCommandDataSource>();
-            builder.Register(c => new SubscriptionQueryDataSource(dbConnection)).As<ISubscriptionQueryDataSource>();
-            builder.Register(c => new EpisodeCommandDataSource(dbConnection)).As<IEpisodeCommandDataSource>();
-            builder.Register(c => new EpisodesQueryDataSource(dbConnection)).As<IEpisodesQueryDataSource>();
+            builder.RegisterType<SubscriptionCommandDataSource>().As<ISubscriptionCommandDataSource>();
+            builder.RegisterType<SubscriptionQueryDataSource>().As<ISubscriptionQueryDataSource>();
+            builder.RegisterType<EpisodeCommandDataSource>().As<IEpisodeCommandDataSource>();
+            builder.RegisterType<EpisodesQueryDataSource>().As<IEpisodesQueryDataSource>();
         }
     }
 }

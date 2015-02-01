@@ -42,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbConnectionHelper.cs" />
     <Compile Include="EpisodeCommandDataSource.cs" />
     <Compile Include="EpisodesQueryDataSource.cs" />
+    <Compile Include="IDbConnectionHelper.cs" />
     <Compile Include="IEpisodeCommandDataSource.cs" />
     <Compile Include="IEpisodesQueryDataSource.cs" />
     <Compile Include="ISubscriptionCommandDataSource.cs" />
