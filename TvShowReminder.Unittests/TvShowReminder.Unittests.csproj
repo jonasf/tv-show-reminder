@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EpisodesCommandServiceTests.cs" />
+    <Compile Include="EpisodesQueryServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubscriptionCommandServiceTests.cs" />
     <Compile Include="SubscriptionQueryServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

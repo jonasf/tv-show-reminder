@@ -105,6 +105,18 @@ namespace TvShowReminder.Unittests
             _subscriptionCommandDataSource.Received(1).SaveLastAirDate(_subscription1.Id, Arg.Any<DateTime>());
         }
 
+        [Fact]
+        public void Should_call_delete_on_all_episodes()
+        {
+            int[] episodeIds = { 1, 2, 3 };
+
+            _episodesCommandService.DeleteEpisodes(episodeIds);
+
+            _episodeCommandDataSource.Received(1).DeleteEpisode(1);
+            _episodeCommandDataSource.Received(1).DeleteEpisode(2);
+            _episodeCommandDataSource.Received(1).DeleteEpisode(3);
+        }
+
         private TvRageSpecialEpisode CreateSpecialEpisode(int season, string title, DateTime airdate)
         {
             return new TvRageSpecialEpisode { Season = season, Title = title, AirDate = airdate };
