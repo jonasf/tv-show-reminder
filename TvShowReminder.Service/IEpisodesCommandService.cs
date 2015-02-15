@@ -1,4 +1,4 @@
-﻿using TvShowReminder.Model.Command;
+﻿using TvShowReminder.Contracts.Command;
 
 namespace TvShowReminder.Service
 {

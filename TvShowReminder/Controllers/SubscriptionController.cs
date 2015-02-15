@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using TvShowReminder.Model.Command;
-using TvShowReminder.Model.Query;
+using TvShowReminder.Contracts.Command;
+using TvShowReminder.Contracts.Query;
 using TvShowReminder.Models;
 using TvShowReminder.Service;
 

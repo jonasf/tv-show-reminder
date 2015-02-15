@@ -7,8 +7,8 @@
     <ProjectGuid>{91180DC8-F1D5-419D-A493-E18B56EF195E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TvShowReminder.Model</RootNamespace>
-    <AssemblyName>TvShowReminder.Model</AssemblyName>
+    <RootNamespace>TvShowReminder.Contracts</RootNamespace>
+    <AssemblyName>TvShowReminder.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

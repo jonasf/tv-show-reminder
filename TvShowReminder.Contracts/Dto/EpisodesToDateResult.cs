@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TvShowReminder.Model.Response;
 
-namespace TvShowReminder.Model.Dto
+namespace TvShowReminder.Contracts.Dto
 {
     public class EpisodesToDateResult
     {

@@ -1,5 +1,5 @@
-﻿using TvShowReminder.Model.Query;
-using TvShowReminder.Model.Response;
+﻿using TvShowReminder.Contracts.Query;
+using TvShowReminder.Contracts.Response;
 
 namespace TvShowReminder.Service
 {

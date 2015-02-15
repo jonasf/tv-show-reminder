@@ -54,9 +54,9 @@
       <Project>{b8b3f7e5-e4b7-4b9b-970b-03ef16b25eb9}</Project>
       <Name>TvShowReminder.DataSource</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TvShowReminder.Model\TvShowReminder.Model.csproj">
+    <ProjectReference Include="..\TvShowReminder.Contracts\TvShowReminder.Contracts.csproj">
       <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>
-      <Name>TvShowReminder.Model</Name>
+      <Name>TvShowReminder.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj">
       <Project>{75089242-70be-45af-8b06-037921acfda5}</Project>

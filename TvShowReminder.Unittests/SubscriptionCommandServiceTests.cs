@@ -1,7 +1,7 @@
 ﻿using System;
 using NSubstitute;
+using TvShowReminder.Contracts.Command;
 using TvShowReminder.DataSource;
-using TvShowReminder.Model.Command;
 using TvShowReminder.Service;
 using Xunit;
 

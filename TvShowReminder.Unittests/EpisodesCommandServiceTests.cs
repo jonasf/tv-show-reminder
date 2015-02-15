@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using NSubstitute;
+using TvShowReminder.Contracts.Command;
+using TvShowReminder.Contracts.Dto;
 using TvShowReminder.DataSource;
-using TvShowReminder.Model.Command;
-using TvShowReminder.Model.Dto;
 using TvShowReminder.Service;
 using TvShowReminder.TvRageApi;
 using TvShowReminder.TvRageApi.Domain;

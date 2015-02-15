@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TvShowReminder.Contracts.Dto;
+using TvShowReminder.Contracts.Query;
+using TvShowReminder.Contracts.Response;
 using TvShowReminder.DataSource;
-using TvShowReminder.Model.Dto;
-using TvShowReminder.Model.Query;
-using TvShowReminder.Model.Response;
 using TvShowReminder.TvRageApi;
 
 namespace TvShowReminder.Service

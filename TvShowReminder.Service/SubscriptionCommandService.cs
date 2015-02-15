@@ -1,6 +1,6 @@
 ﻿using System;
+using TvShowReminder.Contracts.Command;
 using TvShowReminder.DataSource;
-using TvShowReminder.Model.Command;
 
 namespace TvShowReminder.Service
 {

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
+using TvShowReminder.Contracts.Dto;
+using TvShowReminder.Contracts.Query;
 using TvShowReminder.DataSource;
-using TvShowReminder.Model.Dto;
-using TvShowReminder.Model.Query;
 
 namespace TvShowReminder.Service
 {

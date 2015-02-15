@@ -1,4 +1,4 @@
-namespace TvShowReminder.Model.Command
+namespace TvShowReminder.Contracts.Command
 {
     public class DeleteSubscriptionCommand
     {

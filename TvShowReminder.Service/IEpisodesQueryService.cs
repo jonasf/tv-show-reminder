@@ -1,5 +1,5 @@
-﻿using TvShowReminder.Model.Dto;
-using TvShowReminder.Model.Query;
+﻿using TvShowReminder.Contracts.Dto;
+using TvShowReminder.Contracts.Query;
 
 namespace TvShowReminder.Service
 {

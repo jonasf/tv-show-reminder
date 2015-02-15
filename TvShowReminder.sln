@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Service", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Unittests", "TvShowReminder.Unittests\TvShowReminder.Unittests.csproj", "{45AB3CF2-E55B-4600-A66A-F8247B167315}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Model", "TvShowReminder.Model\TvShowReminder.Model.csproj", "{91180DC8-F1D5-419D-A493-E18B56EF195E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Contracts", "TvShowReminder.Contracts\TvShowReminder.Contracts.csproj", "{91180DC8-F1D5-419D-A493-E18B56EF195E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DataSource", "TvShowReminder.DataSource\TvShowReminder.DataSource.csproj", "{B8B3F7E5-E4B7-4B9B-970B-03EF16B25EB9}"
 EndProject

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TvShowReminder.Model.Dto
+namespace TvShowReminder.Contracts.Dto
 {
     public class Subscription
     {

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TvShowReminder.Model.Dto;
+using TvShowReminder.Contracts.Dto;
 
 namespace TvShowReminder.DataSource
 {

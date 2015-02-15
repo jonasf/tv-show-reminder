@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TvShowReminder.Model\TvShowReminder.Model.csproj">
+    <ProjectReference Include="..\TvShowReminder.Contracts\TvShowReminder.Contracts.csproj">
       <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>
-      <Name>TvShowReminder.Model</Name>
+      <Name>TvShowReminder.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

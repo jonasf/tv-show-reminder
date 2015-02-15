@@ -1,4 +1,4 @@
-﻿namespace TvShowReminder.Model.Query
+﻿namespace TvShowReminder.Contracts.Query
 {
     public class SearchTvShowQuery
     {
