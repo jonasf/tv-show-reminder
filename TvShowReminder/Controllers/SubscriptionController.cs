@@ -15,16 +15,19 @@ namespace TvShowReminder.Controllers
         private readonly ISubscriptionCommandService _subscriptionCommandService;
         private readonly IEpisodesCommandService _episodesCommandService;
         private readonly ICommandSender _commandSender;
+        private readonly IQuerySender _querySender;
 
         public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
                                         ISubscriptionCommandService subscriptionCommandService,
                                         IEpisodesCommandService episodesCommandService,
-                                        ICommandSender commandSender)
+                                        ICommandSender commandSender,
+                                        IQuerySender querySender)
         {
             _subscriptionQueryService = subscriptionQueryService;
             _subscriptionCommandService = subscriptionCommandService;
             _episodesCommandService = episodesCommandService;
             _commandSender = commandSender;
+            _querySender = querySender;
         }
 
         public ActionResult Search(string q)
@@ -33,7 +36,7 @@ namespace TvShowReminder.Controllers
 
             if (HasSearchParameters(q))
             {
-                var result = _subscriptionQueryService.Search(new SearchTvShowQuery { Query = q });
+                var result = _querySender.Send(new SearchTvShowQuery { Query = q });
                 searchViewModel.SearchWords = q;
                 searchViewModel.HasSearch = true;
                 searchViewModel.TvShows = result.TvShows;

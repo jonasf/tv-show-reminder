@@ -1,24 +1,25 @@
 ﻿using System.Linq;
+using TvShowReminder.Contracts;
 using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Contracts.Response;
 using TvShowReminder.DataSource;
 
-namespace TvShowReminder.Service
+namespace TvShowReminder.Service.Query
 {
-    public class EpisodesQueryService : IEpisodesQueryService
+    public class EpisodesToDateQueryHandler : IQueryHandler<EpisodesToDateQuery, EpisodesToDateResult>
     {
         private readonly IEpisodesQueryDataSource _episodesQueryDataSource;
         private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
 
-        public EpisodesQueryService(IEpisodesQueryDataSource episodesQueryDataSource,
-                                    ISubscriptionQueryDataSource subscriptionQueryDataSource)
+        public EpisodesToDateQueryHandler(IEpisodesQueryDataSource episodesQueryDataSource, 
+                                            ISubscriptionQueryDataSource subscriptionQueryDataSource)
         {
             _episodesQueryDataSource = episodesQueryDataSource;
             _subscriptionQueryDataSource = subscriptionQueryDataSource;
         }
 
-        public EpisodesToDateResult GetEpisodesUpToDate(EpisodesToDateQuery query)
+        public EpisodesToDateResult Handle(EpisodesToDateQuery query)
         {
             var shows = _subscriptionQueryDataSource.GetAllSubscriptions();
             var episodes = _episodesQueryDataSource.GetToDate(query.ToDate);

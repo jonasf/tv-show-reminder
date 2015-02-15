@@ -13,21 +13,21 @@ namespace TvShowReminder.Controllers
     public class HomeController : Controller
     {
         private readonly IEpisodesCommandService _episodesCommandService;
-        private readonly IEpisodesQueryService _episodesQueryService;
         private readonly ICommandSender _commandSender;
+        private readonly IQuerySender _querySender;
 
         public HomeController(IEpisodesCommandService episodesCommandService, 
-                                IEpisodesQueryService episodesQueryService,
-                                ICommandSender commandSender)
+                                ICommandSender commandSender,
+                                IQuerySender querySender)
         {
             _episodesCommandService = episodesCommandService;
-            _episodesQueryService = episodesQueryService;
             _commandSender = commandSender;
+            _querySender = querySender;
         }
 
         public ActionResult Index()
         {
-            var result = _episodesQueryService.GetEpisodesUpToDate(new EpisodesToDateQuery { ToDate = DateTime.Now.AddDays(1) });
+            var result = _querySender.Send(new EpisodesToDateQuery {ToDate = DateTime.Now.AddDays(1)});
             var viewModel = new EpisodeListViewModel
             {
                 HasResults = result.Episodes.Any(),

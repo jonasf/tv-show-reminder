@@ -99,6 +99,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
     <Compile Include="Framework\ICommandSender.cs" />
+    <Compile Include="Framework\IQuerySender.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -8,6 +8,7 @@ namespace TvShowReminder.Startup.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CommandSender>().As<ICommandSender>();
+            builder.RegisterType<QuerySender>().As<IQuerySender>();
         }
     }
 }
