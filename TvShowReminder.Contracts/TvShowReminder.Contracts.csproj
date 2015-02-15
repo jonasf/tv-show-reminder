@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\AddSubscriptionCommand.cs" />
+    <Compile Include="Command\DeleteEpisodesCommand.cs" />
     <Compile Include="Command\DeleteSubscriptionCommand.cs" />
     <Compile Include="Command\RefreshEpisodesCommand.cs" />
     <Compile Include="Dto\Episode.cs" />
@@ -48,6 +49,8 @@
     <Compile Include="Dto\Subscription.cs" />
     <Compile Include="Dto\SubscriptionWithNextEpisodeDto.cs" />
     <Compile Include="Dto\TvShow.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ICommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\EpisodesToDateQuery.cs" />
     <Compile Include="Query\SearchTvShowQuery.cs" />

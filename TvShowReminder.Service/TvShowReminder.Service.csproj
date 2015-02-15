@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\AddSubscriptionCommandHandler.cs" />
+    <Compile Include="Command\DeleteEpisodesCommandHandler.cs" />
     <Compile Include="EpisodesCommandService.cs" />
     <Compile Include="EpisodesQueryService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />

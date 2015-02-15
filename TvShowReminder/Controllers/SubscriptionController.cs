@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using TvShowReminder.Contracts.Command;
 using TvShowReminder.Contracts.Query;
+using TvShowReminder.Framework;
 using TvShowReminder.Models;
 using TvShowReminder.Service;
 
@@ -13,14 +14,17 @@ namespace TvShowReminder.Controllers
         private readonly ISubscriptionQueryService _subscriptionQueryService;
         private readonly ISubscriptionCommandService _subscriptionCommandService;
         private readonly IEpisodesCommandService _episodesCommandService;
+        private readonly ICommandSender _commandSender;
 
         public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
                                         ISubscriptionCommandService subscriptionCommandService,
-                                        IEpisodesCommandService episodesCommandService)
+                                        IEpisodesCommandService episodesCommandService,
+                                        ICommandSender commandSender)
         {
             _subscriptionQueryService = subscriptionQueryService;
             _subscriptionCommandService = subscriptionCommandService;
             _episodesCommandService = episodesCommandService;
+            _commandSender = commandSender;
         }
 
         public ActionResult Search(string q)
@@ -47,7 +51,7 @@ namespace TvShowReminder.Controllers
                 ShowName = showName
             };
 
-            _subscriptionCommandService.AddSubscription(command);
+            _commandSender.Send(command);
 
             return View();
         }
