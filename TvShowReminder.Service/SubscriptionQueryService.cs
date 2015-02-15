@@ -23,27 +23,6 @@ namespace TvShowReminder.Service
             _episodesQueryDataSource = episodesQueryDataSource;
         }
 
-        public SearchTvShowResult Search(SearchTvShowQuery searchTvShowQuery)
-        {
-            var searchResult = _tvRageService.Search(searchTvShowQuery.Query);
-            var subscribedShows = _subscriptionQueryDataSource.GetAllSubscriptionIds().ToList();
-
-            var result = searchResult.Select(show => new TvShow
-            {
-                Id = show.ShowId,
-                Name = show.Name,
-                Link = show.Link,
-                StartedYear = show.Started,
-                EndedYear = show.Ended,
-                IsSubscribed = CheckIfSubscribed(subscribedShows, show.ShowId)
-            });
-
-            return new SearchTvShowResult
-            {
-                TvShows = result
-            };
-        }
-
         public GetAllSubscriptionsWithNextEpisodeResult GetAllWithNextEpisode()
         {
             var subscriptions = _subscriptionQueryDataSource.GetAllSubscriptions();
@@ -62,11 +41,6 @@ namespace TvShowReminder.Service
             {
                 Subscriptions = result
             };
-        }
-
-        private bool CheckIfSubscribed(List<int> subscribedShows, int showId)
-        {
-            return subscribedShows.Contains(showId);
         }
     }
 }

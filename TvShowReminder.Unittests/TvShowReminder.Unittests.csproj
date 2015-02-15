@@ -48,7 +48,6 @@
     <Compile Include="AddSubscriptionCommandHandlerTests.cs" />
     <Compile Include="DeleteEpisodesCommandHandlerTests.cs" />
     <Compile Include="EpisodesCommandServiceTests.cs" />
-    <Compile Include="EpisodesQueryServiceTests.cs" />
     <Compile Include="EpisodesToDateQueryHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchTvShowQueryHandlerTests.cs" />

@@ -5,7 +5,6 @@ namespace TvShowReminder.Service
 {
     public interface ISubscriptionQueryService
     {
-        SearchTvShowResult Search(SearchTvShowQuery searchTvShowQuery);
         GetAllSubscriptionsWithNextEpisodeResult GetAllWithNextEpisode();
     }
 }
