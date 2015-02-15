@@ -23,22 +23,6 @@ namespace TvShowReminder.Unittests
         }
 
         [Fact]
-        public void Should_add_subscription()
-        {
-            const int showId = 1;
-            const string showName = "The awesome show";
-            var command = new AddSubscriptionCommand {ShowId = showId, ShowName = showName};
-
-            _subscriptionCommandService.AddSubscription(command);
-
-            _subscriptionCommandDataSource
-                .Received(1)
-                .Insert(showId, 
-                        showName,
-                        Arg.Is<DateTime>(date => date > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0, 0) && date < new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59, 59)));
-        }
-
-        [Fact]
         public void Should_delete_subscription()
         {
             const int subscriptionId = 1;

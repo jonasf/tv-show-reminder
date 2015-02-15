@@ -16,12 +16,6 @@ namespace TvShowReminder.Service
             _episodeCommandDataSource = episodeCommandDataSource;
         }
 
-        public void AddSubscription(AddSubscriptionCommand command)
-        {
-            DateTime defaultLastAirDate = DateTime.Now;
-            _subscriptionCommandDataSource.Insert(command.ShowId, command.ShowName, defaultLastAirDate);
-        }
-
         public void DeleteSubscription(DeleteSubscriptionCommand command)
         {
             _episodeCommandDataSource.DeleteAllFromSubscription(command.SubscriptionId);
