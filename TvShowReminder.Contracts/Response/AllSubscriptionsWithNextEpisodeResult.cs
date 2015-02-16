@@ -3,7 +3,7 @@ using TvShowReminder.Contracts.Dto;
 
 namespace TvShowReminder.Contracts.Response
 {
-    public class GetAllSubscriptionsWithNextEpisodeResult
+    public class AllSubscriptionsWithNextEpisodeResult
     {
         public IEnumerable<SubscriptionWithNextEpisodeDto> Subscriptions { get; set; }
     }

@@ -11,17 +11,14 @@ namespace TvShowReminder.Controllers
     [Authorize]
     public class SubscriptionController : Controller
     {
-        private readonly ISubscriptionQueryService _subscriptionQueryService;
         private readonly IEpisodesCommandService _episodesCommandService;
         private readonly ICommandSender _commandSender;
         private readonly IQuerySender _querySender;
 
-        public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
-                                        IEpisodesCommandService episodesCommandService,
+        public SubscriptionController(IEpisodesCommandService episodesCommandService,
                                         ICommandSender commandSender,
                                         IQuerySender querySender)
         {
-            _subscriptionQueryService = subscriptionQueryService;
             _episodesCommandService = episodesCommandService;
             _commandSender = commandSender;
             _querySender = querySender;
@@ -83,7 +80,7 @@ namespace TvShowReminder.Controllers
 
         public ActionResult List()
         {
-            var result = _subscriptionQueryService.GetAllWithNextEpisode();
+            var result = _querySender.Send(new AllSubscriptionsWithNextEpisodeQuery());
             var viewModel = new SubscriptionsListViewModel
             {
                 Subscriptions = result.Subscriptions.OrderBy(s => s.Subscription.TvShowName)

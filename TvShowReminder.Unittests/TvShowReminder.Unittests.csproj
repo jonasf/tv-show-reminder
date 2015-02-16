@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddSubscriptionCommandHandlerTests.cs" />
+    <Compile Include="AllSubscriptionsWithNextEpisodeQueryHandlerTests.cs" />
     <Compile Include="DeleteEpisodesCommandHandlerTests.cs" />
     <Compile Include="DeleteSubscriptionCommandHandlerTests.cs" />
     <Compile Include="EpisodesCommandServiceTests.cs" />

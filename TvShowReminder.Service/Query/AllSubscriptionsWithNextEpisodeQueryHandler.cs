@@ -1,29 +1,25 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using TvShowReminder.Contracts;
 using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Contracts.Response;
 using TvShowReminder.DataSource;
-using TvShowReminder.TvRageApi;
 
-namespace TvShowReminder.Service
+namespace TvShowReminder.Service.Query
 {
-    public class SubscriptionQueryService : ISubscriptionQueryService
+    public class AllSubscriptionsWithNextEpisodeQueryHandler : IQueryHandler<AllSubscriptionsWithNextEpisodeQuery, AllSubscriptionsWithNextEpisodeResult>
     {
-        private readonly ITvRageService _tvRageService;
         private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
         private readonly IEpisodesQueryDataSource _episodesQueryDataSource;
 
-        public SubscriptionQueryService(ITvRageService tvRageService,   
-                                        ISubscriptionQueryDataSource subscriptionQueryDataSource, 
-                                        IEpisodesQueryDataSource episodesQueryDataSource)
+        public AllSubscriptionsWithNextEpisodeQueryHandler(ISubscriptionQueryDataSource subscriptionQueryDataSource, 
+                                                            IEpisodesQueryDataSource episodesQueryDataSource)
         {
-            _tvRageService = tvRageService;
             _subscriptionQueryDataSource = subscriptionQueryDataSource;
             _episodesQueryDataSource = episodesQueryDataSource;
         }
 
-        public AllSubscriptionsWithNextEpisodeResult GetAllWithNextEpisode()
+        public AllSubscriptionsWithNextEpisodeResult Handle(AllSubscriptionsWithNextEpisodeQuery query)
         {
             var subscriptions = _subscriptionQueryDataSource.GetAllSubscriptions();
 
