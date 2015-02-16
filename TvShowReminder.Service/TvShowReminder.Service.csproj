@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Command\AddSubscriptionCommandHandler.cs" />
     <Compile Include="Command\DeleteEpisodesCommandHandler.cs" />
+    <Compile Include="Command\DeleteSubscriptionCommandHandler.cs" />
     <Compile Include="EpisodesCommandService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />
     <Compile Include="ISubscriptionCommandService.cs" />

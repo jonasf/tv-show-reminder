@@ -12,19 +12,16 @@ namespace TvShowReminder.Controllers
     public class SubscriptionController : Controller
     {
         private readonly ISubscriptionQueryService _subscriptionQueryService;
-        private readonly ISubscriptionCommandService _subscriptionCommandService;
         private readonly IEpisodesCommandService _episodesCommandService;
         private readonly ICommandSender _commandSender;
         private readonly IQuerySender _querySender;
 
         public SubscriptionController(ISubscriptionQueryService subscriptionQueryService, 
-                                        ISubscriptionCommandService subscriptionCommandService,
                                         IEpisodesCommandService episodesCommandService,
                                         ICommandSender commandSender,
                                         IQuerySender querySender)
         {
             _subscriptionQueryService = subscriptionQueryService;
-            _subscriptionCommandService = subscriptionCommandService;
             _episodesCommandService = episodesCommandService;
             _commandSender = commandSender;
             _querySender = querySender;
@@ -67,7 +64,7 @@ namespace TvShowReminder.Controllers
                 SubscriptionId = subscriptionId
             };
 
-            _subscriptionCommandService.DeleteSubscription(command);
+            _commandSender.Send(command);
 
             return View();
         }

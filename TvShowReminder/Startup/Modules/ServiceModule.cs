@@ -23,6 +23,7 @@ namespace TvShowReminder.Startup.Modules
             builder.RegisterType<AddSubscriptionCommandHandler>().As<ICommandHandler<AddSubscriptionCommand>>();
             builder.RegisterType<EpisodesToDateQueryHandler>().As<IQueryHandler<EpisodesToDateQuery, EpisodesToDateResult>>();
             builder.RegisterType<SearchTvShowQueryHandler>().As<IQueryHandler<SearchTvShowQuery, SearchTvShowResult>>();
+            builder.RegisterType<DeleteSubscriptionCommandHandler>().As<ICommandHandler<DeleteSubscriptionCommand>>();
         }
     }
 }
