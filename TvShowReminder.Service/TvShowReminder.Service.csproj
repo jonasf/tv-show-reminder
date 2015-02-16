@@ -44,12 +44,10 @@
     <Compile Include="Command\DeleteSubscriptionCommandHandler.cs" />
     <Compile Include="EpisodesCommandService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />
-    <Compile Include="ISubscriptionQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\EpisodesToDateQueryHandler.cs" />
     <Compile Include="Query\AllSubscriptionsWithNextEpisodeQueryHandler.cs" />
     <Compile Include="Query\SearchTvShowQueryHandler.cs" />
-    <Compile Include="SubscriptionQueryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj">
