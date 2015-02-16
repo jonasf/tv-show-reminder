@@ -44,12 +44,10 @@
     <Compile Include="Command\DeleteSubscriptionCommandHandler.cs" />
     <Compile Include="EpisodesCommandService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />
-    <Compile Include="ISubscriptionCommandService.cs" />
     <Compile Include="ISubscriptionQueryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\EpisodesToDateQueryHandler.cs" />
     <Compile Include="Query\SearchTvShowQueryHandler.cs" />
-    <Compile Include="SubscriptionCommandService.cs" />
     <Compile Include="SubscriptionQueryService.cs" />
   </ItemGroup>
   <ItemGroup>
