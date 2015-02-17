@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshEpisodesCommandHandlerTests.cs" />
     <Compile Include="SearchTvShowQueryHandlerTests.cs" />
+    <Compile Include="UpdateEpisodesForAllSubscriptionsCommandHandlerTests.cs" />
     <Compile Include="UpdateEpisodesServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

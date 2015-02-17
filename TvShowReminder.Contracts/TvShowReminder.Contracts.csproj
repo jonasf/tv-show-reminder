@@ -43,6 +43,7 @@
     <Compile Include="Command\DeleteEpisodesCommand.cs" />
     <Compile Include="Command\DeleteSubscriptionCommand.cs" />
     <Compile Include="Command\RefreshEpisodesCommand.cs" />
+    <Compile Include="Command\UpdateEpisodesForAllSubscriptionsCommand.cs" />
     <Compile Include="Dto\Episode.cs" />
     <Compile Include="Dto\EpisodeWithSubscriptionInfoDto.cs" />
     <Compile Include="Dto\Subscription.cs" />

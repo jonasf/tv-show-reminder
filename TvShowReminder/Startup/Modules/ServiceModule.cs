@@ -26,6 +26,8 @@ namespace TvShowReminder.Startup.Modules
             builder.RegisterType<AllSubscriptionsWithNextEpisodeQueryHandler>()
                 .As<IQueryHandler<AllSubscriptionsWithNextEpisodeQuery, AllSubscriptionsWithNextEpisodeResult>>();
             builder.RegisterType<RefreshEpisodesCommandHandler>().As<ICommandHandler<RefreshEpisodesCommand>>();
+            builder.RegisterType<UpdateEpisodesForAllSubscriptionsCommandHandler>().As<ICommandHandler<UpdateEpisodesForAllSubscriptionsCommand>>()
+            ;
         }
     }
 }
