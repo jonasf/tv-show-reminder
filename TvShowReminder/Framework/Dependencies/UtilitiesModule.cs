@@ -1,7 +1,6 @@
 ﻿using Autofac;
-using TvShowReminder.Framework;
 
-namespace TvShowReminder.Startup.Modules
+namespace TvShowReminder.Framework.Dependencies
 {
     public class UtilitiesModule : Module
     {

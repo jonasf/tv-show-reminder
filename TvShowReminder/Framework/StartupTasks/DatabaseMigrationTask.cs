@@ -2,7 +2,7 @@
 using NLog;
 using TvShowReminder.DatabaseMigrations;
 
-namespace TvShowReminder.Startup.Tasks
+namespace TvShowReminder.Framework.StartupTasks
 {
     public class DatabaseMigrationTask : IStartable
     {

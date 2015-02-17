@@ -98,8 +98,15 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Framework\CommandSender.cs" />
     <Compile Include="Framework\ICommandSender.cs" />
     <Compile Include="Framework\IQuerySender.cs" />
+    <Compile Include="Framework\Dependencies\DataSourceModule.cs" />
+    <Compile Include="Framework\Dependencies\ServiceModule.cs" />
+    <Compile Include="Framework\Dependencies\StartupTaskModule.cs" />
+    <Compile Include="Framework\Dependencies\UtilitiesModule.cs" />
+    <Compile Include="Framework\QuerySender.cs" />
+    <Compile Include="Framework\StartupTasks\DatabaseMigrationTask.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -107,11 +114,6 @@
     <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SubscriptionsListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup\Modules\DataSourceModule.cs" />
-    <Compile Include="Startup\Modules\ServiceModule.cs" />
-    <Compile Include="Startup\Modules\StartupTaskModule.cs" />
-    <Compile Include="Startup\Modules\UtilitiesModule.cs" />
-    <Compile Include="Startup\Tasks\DatabaseMigrationTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -137,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Startup\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj">

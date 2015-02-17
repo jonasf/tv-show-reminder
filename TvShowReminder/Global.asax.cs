@@ -7,7 +7,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using NLog;
 using TvShowReminder.DatabaseMigrations;
-using TvShowReminder.Startup.Modules;
+using TvShowReminder.Framework.Dependencies;
 
 namespace TvShowReminder
 {

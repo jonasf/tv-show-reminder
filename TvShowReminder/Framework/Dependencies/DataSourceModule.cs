@@ -3,7 +3,7 @@ using Autofac;
 using TvShowReminder.DatabaseMigrations;
 using TvShowReminder.DataSource;
 
-namespace TvShowReminder.Startup.Modules
+namespace TvShowReminder.Framework.Dependencies
 {
     public class DataSourceModule : Module
     {

@@ -7,7 +7,7 @@ using TvShowReminder.Service.Command;
 using TvShowReminder.Service.Query;
 using TvShowReminder.TvRageApi;
 
-namespace TvShowReminder.Startup.Modules
+namespace TvShowReminder.Framework.Dependencies
 {
     public class ServiceModule : Module
     {
