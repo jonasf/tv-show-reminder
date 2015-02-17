@@ -49,7 +49,6 @@
     <Compile Include="AllSubscriptionsWithNextEpisodeQueryHandlerTests.cs" />
     <Compile Include="DeleteEpisodesCommandHandlerTests.cs" />
     <Compile Include="DeleteSubscriptionCommandHandlerTests.cs" />
-    <Compile Include="EpisodesCommandServiceTests.cs" />
     <Compile Include="EpisodesToDateQueryHandlerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RefreshEpisodesCommandHandlerTests.cs" />

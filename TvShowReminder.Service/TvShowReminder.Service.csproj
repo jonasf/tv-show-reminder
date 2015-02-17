@@ -46,8 +46,6 @@
     <Compile Include="Command\RefreshEpisodesCommandHandler.cs" />
     <Compile Include="Command\UpdateEpisodesForAllSubscriptionsCommandHandler.cs" />
     <Compile Include="Command\UpdateEpisodesService.cs" />
-    <Compile Include="EpisodesCommandService.cs" />
-    <Compile Include="IEpisodesCommandService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\EpisodesToDateQueryHandler.cs" />
     <Compile Include="Query\AllSubscriptionsWithNextEpisodeQueryHandler.cs" />

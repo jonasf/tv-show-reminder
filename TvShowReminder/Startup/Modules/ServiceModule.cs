@@ -3,7 +3,6 @@ using TvShowReminder.Contracts;
 using TvShowReminder.Contracts.Command;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Contracts.Response;
-using TvShowReminder.Service;
 using TvShowReminder.Service.Command;
 using TvShowReminder.Service.Query;
 using TvShowReminder.TvRageApi;
@@ -16,7 +15,6 @@ namespace TvShowReminder.Startup.Modules
         {
             builder.RegisterType<TvRageService>().As<ITvRageService>();
             builder.RegisterType<UpdateEpisodesService>().As<IUpdateEpisodesService>();
-            builder.RegisterType<EpisodesCommandService>().As<IEpisodesCommandService>();
 
             builder.RegisterType<DeleteEpisodesCommandHandler>().As<ICommandHandler<DeleteEpisodesCommand>>();
             builder.RegisterType<AddSubscriptionCommandHandler>().As<ICommandHandler<AddSubscriptionCommand>>();
@@ -26,8 +24,7 @@ namespace TvShowReminder.Startup.Modules
             builder.RegisterType<AllSubscriptionsWithNextEpisodeQueryHandler>()
                 .As<IQueryHandler<AllSubscriptionsWithNextEpisodeQuery, AllSubscriptionsWithNextEpisodeResult>>();
             builder.RegisterType<RefreshEpisodesCommandHandler>().As<ICommandHandler<RefreshEpisodesCommand>>();
-            builder.RegisterType<UpdateEpisodesForAllSubscriptionsCommandHandler>().As<ICommandHandler<UpdateEpisodesForAllSubscriptionsCommand>>()
-            ;
+            builder.RegisterType<UpdateEpisodesForAllSubscriptionsCommandHandler>().As<ICommandHandler<UpdateEpisodesForAllSubscriptionsCommand>>();
         }
     }
 }
