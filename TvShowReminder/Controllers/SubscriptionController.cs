@@ -4,22 +4,18 @@ using TvShowReminder.Contracts.Command;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Framework;
 using TvShowReminder.Models;
-using TvShowReminder.Service;
 
 namespace TvShowReminder.Controllers
 {
     [Authorize]
     public class SubscriptionController : Controller
     {
-        private readonly IEpisodesCommandService _episodesCommandService;
         private readonly ICommandSender _commandSender;
         private readonly IQuerySender _querySender;
 
-        public SubscriptionController(IEpisodesCommandService episodesCommandService,
-                                        ICommandSender commandSender,
+        public SubscriptionController(ICommandSender commandSender,
                                         IQuerySender querySender)
         {
-            _episodesCommandService = episodesCommandService;
             _commandSender = commandSender;
             _querySender = querySender;
         }
@@ -73,7 +69,8 @@ namespace TvShowReminder.Controllers
             {
                 SubscriptionId = subscriptionId
             };
-            _episodesCommandService.RefreshEpisodes(command);
+
+            _commandSender.Send(command);
 
             return RedirectToAction("List", "Subscription");
         }

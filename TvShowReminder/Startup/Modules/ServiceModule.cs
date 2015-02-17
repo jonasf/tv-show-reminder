@@ -15,6 +15,7 @@ namespace TvShowReminder.Startup.Modules
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<TvRageService>().As<ITvRageService>();
+            builder.RegisterType<UpdateEpisodesService>().As<IUpdateEpisodesService>();
             builder.RegisterType<EpisodesCommandService>().As<IEpisodesCommandService>();
 
             builder.RegisterType<DeleteEpisodesCommandHandler>().As<ICommandHandler<DeleteEpisodesCommand>>();
@@ -24,6 +25,7 @@ namespace TvShowReminder.Startup.Modules
             builder.RegisterType<DeleteSubscriptionCommandHandler>().As<ICommandHandler<DeleteSubscriptionCommand>>();
             builder.RegisterType<AllSubscriptionsWithNextEpisodeQueryHandler>()
                 .As<IQueryHandler<AllSubscriptionsWithNextEpisodeQuery, AllSubscriptionsWithNextEpisodeResult>>();
+            builder.RegisterType<RefreshEpisodesCommandHandler>().As<ICommandHandler<RefreshEpisodesCommand>>();
         }
     }
 }

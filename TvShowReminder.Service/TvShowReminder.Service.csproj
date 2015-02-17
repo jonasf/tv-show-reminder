@@ -42,6 +42,9 @@
     <Compile Include="Command\AddSubscriptionCommandHandler.cs" />
     <Compile Include="Command\DeleteEpisodesCommandHandler.cs" />
     <Compile Include="Command\DeleteSubscriptionCommandHandler.cs" />
+    <Compile Include="Command\IUpdateEpisodesService.cs" />
+    <Compile Include="Command\RefreshEpisodesCommandHandler.cs" />
+    <Compile Include="Command\UpdateEpisodesService.cs" />
     <Compile Include="EpisodesCommandService.cs" />
     <Compile Include="IEpisodesCommandService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
