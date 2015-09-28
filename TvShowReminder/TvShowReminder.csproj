@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -157,6 +158,10 @@
     <ProjectReference Include="..\TvShowReminder.Service\TvShowReminder.Service.csproj">
       <Project>{20e3be97-fab2-4a4d-bc54-dddae1750f85}</Project>
       <Name>TvShowReminder.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.TvMazeApi\TvShowReminder.TvMazeApi.csproj">
+      <Project>{b96228c0-8af5-42b9-b779-649899cde7eb}</Project>
+      <Name>TvShowReminder.TvMazeApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj">
       <Project>{75089242-70be-45af-8b06-037921acfda5}</Project>

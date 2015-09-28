@@ -11,23 +11,17 @@
                     @foreach (var show in Model.TvShows)
                     {
                         <tr>
+                            <td><img class="img-responsive" src="@show.ImageUrl"/></td>
                             <td>@show.Name</td>
-                            @if (show.EndedYear != 0)
-                            {
-                                <td>@show.StartedYear - @show.EndedYear</td>
-                            }
-                            else
-                            {
-                                <td>@show.StartedYear - </td>
-                            }
+                            <td>@show.StartedYear</td>
                             <td><a href="@show.Link" target="_blank">Mer info.</a></td>
                             <td>
                                 @if (!show.IsSubscribed)
                                 {
                                     using (Html.BeginForm("Add", "Subscription"))
                                     {
-                                        <input type="hidden" name="showId" value="@show.Id" />
-                                        <input type="hidden" name="showName" value="@show.Name" />
+                                        <input type="hidden" name="showId" value="@show.Id"/>
+                                        <input type="hidden" name="showName" value="@show.Name"/>
                                         <button type="submit">
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>

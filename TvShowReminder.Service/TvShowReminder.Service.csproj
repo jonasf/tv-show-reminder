@@ -60,6 +60,10 @@
       <Project>{91180dc8-f1d5-419d-a493-e18b56ef195e}</Project>
       <Name>TvShowReminder.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TvShowReminder.TvMazeApi\TvShowReminder.TvMazeApi.csproj">
+      <Project>{b96228c0-8af5-42b9-b779-649899cde7eb}</Project>
+      <Name>TvShowReminder.TvMazeApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj">
       <Project>{75089242-70be-45af-8b06-037921acfda5}</Project>
       <Name>TvShowReminder.TvRageApi</Name>

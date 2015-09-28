@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using NSubstitute;
-using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.DataSource;
 using TvShowReminder.Service.Query;
-using TvShowReminder.TvRageApi;
-using TvShowReminder.TvRageApi.Domain;
+using TvShowReminder.TvMazeApi;
+using TvShowReminder.TvMazeApi.Domain;
 using Xunit;
 
 namespace TvShowReminder.Unittests
@@ -15,27 +14,27 @@ namespace TvShowReminder.Unittests
     public class SearchTvShowQueryHandlerTests
     {
         private readonly SearchTvShowQueryHandler _handler;
-        private readonly ITvRageService _tvRageService;
+        private readonly ITvMazeService _tvMazeService;
         private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
 
-        private readonly Show _show1;
-        private readonly Show _show2;
+        private readonly TvMazeShow _show1;
+        private readonly TvMazeShow _show2;
 
         public SearchTvShowQueryHandlerTests()
         {
             _show1 = CreateShow1();
             _show2 = CreateShow2();
 
-            _tvRageService = Substitute.For<ITvRageService>();
+            _tvMazeService = Substitute.For<ITvMazeService>();
             _subscriptionQueryDataSource = Substitute.For<ISubscriptionQueryDataSource>();
-            _handler = new SearchTvShowQueryHandler(_tvRageService, _subscriptionQueryDataSource);
+            _handler = new SearchTvShowQueryHandler(_tvMazeService, _subscriptionQueryDataSource);
         }
 
         [Fact]
         public void Should_return_search_result()
         {
             const string query = "The awesome show";
-            _tvRageService.Search(query).Returns(CreateApiResponse());
+            _tvMazeService.Search(query).Returns(CreateApiResponse());
 
             var result = _handler.Handle(new SearchTvShowQuery { Query = query });
 
@@ -47,29 +46,29 @@ namespace TvShowReminder.Unittests
         public void Should_map_properties()
         {
             const string query = "The awesome show";
-            _tvRageService.Search(query).Returns(CreateApiResponse());
+            _tvMazeService.Search(query).Returns(CreateApiResponse());
 
             var result = _handler.Handle(new SearchTvShowQuery { Query = query });
 
             var show1 = result.TvShows.First();
-            Assert.Equal(_show1.ShowId, show1.Id);
+            Assert.Equal(_show1.Id, show1.Id);
             Assert.Equal(_show1.Name, show1.Name);
-            Assert.Equal(_show1.Link, show1.Link);
-            Assert.Equal(_show1.Started, show1.StartedYear);
-            Assert.Equal(_show1.Ended, show1.EndedYear);
+            Assert.Equal(_show1.Url, show1.Link);
+            Assert.Equal(_show1.Premiered.Year, show1.StartedYear);
+            Assert.Equal(_show1.Image.Medium, show1.ImageUrl);
             var show2 = result.TvShows.ElementAt(1);
-            Assert.Equal(_show2.ShowId, show2.Id);
+            Assert.Equal(_show2.Id, show2.Id);
             Assert.Equal(_show2.Name, show2.Name);
-            Assert.Equal(_show2.Link, show2.Link);
-            Assert.Equal(_show2.Started, show2.StartedYear);
-            Assert.Equal(_show2.Ended, show2.EndedYear);
+            Assert.Equal(_show2.Url, show2.Link);
+            Assert.Equal(_show2.Premiered.Year, show2.StartedYear);
+            Assert.Equal(_show2.Image.Medium, show2.ImageUrl);
         }
 
         [Fact]
         public void Should_flag_already_subscribed_show()
         {
             const string query = "The awesome show";
-            _tvRageService.Search(query).Returns(CreateApiResponse());
+            _tvMazeService.Search(query).Returns(CreateApiResponse());
             _subscriptionQueryDataSource.GetAllSubscriptionIds().Returns(new List<int> { 555, 888, 999 });
 
             var result = _handler.Handle(new SearchTvShowQuery { Query = query });
@@ -77,57 +76,44 @@ namespace TvShowReminder.Unittests
             Assert.Equal(true, show1.IsSubscribed);
         }
 
-        private IEnumerable<Show> CreateApiResponse()
+        private IEnumerable<TvMazeShow> CreateApiResponse()
         {
-            return new List<Show>
+            return new List<TvMazeShow>
             {
                 _show1,
                 _show2
             };
         }
 
-        private Show CreateShow1()
+        private TvMazeShow CreateShow1()
         {
-            return new Show
+            return new TvMazeShow
             {
+                Id = 555,
                 Name = "Almost awesome",
-                Country = "US",
-                Seasons = 7,
-                ShowId = 555,
-                Link = "http://blabla.se",
-                Classification = "Scripted",
-                Genres = new List<string> { "Action", "Drama" },
-                Status = "Running",
-                Started = 1992,
-                Ended = 2002
+                Premiered = new DateTime(1992,1,1),
+                Url = "url1",
+                Image = new TvMazeShowImage
+                {
+                    Medium = "medium1",
+                    Original = "original1"
+                }
             };
         }
 
-        private Show CreateShow2()
+        private TvMazeShow CreateShow2()
         {
-            return new Show
+            return new TvMazeShow
             {
+                Id = 666,
                 Name = "Not nearly awesome",
-                Country = "US",
-                Seasons = 1,
-                ShowId = 666,
-                Link = "http://argh.se",
-                Classification = "Scripted",
-                Genres = new List<string> { "Sci-fi", "Fantasy" },
-                Status = "Running",
-                Started = 2001,
-                Ended = 2002
-            };
-        }
-
-        private Subscription CreateSubscription()
-        {
-            return new Subscription
-            {
-                Id = 1,
-                TvShowId = 555,
-                TvShowName = "The stuff",
-                LastAirDate = DateTime.Now.AddDays(5)
+                Premiered = new DateTime(2001, 2, 2),
+                Url = "url2",
+                Image = new TvMazeShowImage
+                {
+                    Medium = "medium2",
+                    Original = "original2"
+                }
             };
         }
     }

@@ -5,35 +5,35 @@ using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Contracts.Response;
 using TvShowReminder.DataSource;
-using TvShowReminder.TvRageApi;
+using TvShowReminder.TvMazeApi;
 
 namespace TvShowReminder.Service.Query
 {
     public class SearchTvShowQueryHandler : IQueryHandler<SearchTvShowQuery, SearchTvShowResult>
     {
-        private readonly ITvRageService _tvRageService;
+        private readonly ITvMazeService _tvMazeService;
         private readonly ISubscriptionQueryDataSource _subscriptionQueryDataSource;
 
-        public SearchTvShowQueryHandler(ITvRageService tvRageService, 
+        public SearchTvShowQueryHandler(ITvMazeService tvMazeService, 
                                             ISubscriptionQueryDataSource subscriptionQueryDataSource)
         {
-            _tvRageService = tvRageService;
+            _tvMazeService = tvMazeService;
             _subscriptionQueryDataSource = subscriptionQueryDataSource;
         }
 
         public SearchTvShowResult Handle(SearchTvShowQuery query)
         {
-            var searchResult = _tvRageService.Search(query.Query);
+            var searchResult = _tvMazeService.Search(query.Query);
             var subscribedShows = _subscriptionQueryDataSource.GetAllSubscriptionIds().ToList();
 
             var result = searchResult.Select(show => new TvShow
             {
-                Id = show.ShowId,
+                Id = show.Id,
                 Name = show.Name,
-                Link = show.Link,
-                StartedYear = show.Started,
-                EndedYear = show.Ended,
-                IsSubscribed = CheckIfSubscribed(subscribedShows, show.ShowId)
+                Link = show.Url,
+                StartedYear = show.Premiered.Year,
+                ImageUrl = show.Image.Medium,
+                IsSubscribed = CheckIfSubscribed(subscribedShows, show.Id)
             });
 
             return new SearchTvShowResult
