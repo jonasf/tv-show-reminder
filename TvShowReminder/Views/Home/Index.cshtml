@@ -21,11 +21,11 @@
                                 <td>@episode.Episode.AirDate.ToString("yyyy-MM-dd")</td>
                                 @if (episode.Episode.EpisodeNumber == 0)
                                 {
-                                    <td>@episode.Subscription.TvShowName @string.Format("{0}xSpecial", episode.Episode.SeasonNumber)</td>
+                                    <td>@episode.Subscription.TvShowName @string.Format("S{0} Special", episode.Episode.SeasonNumber)</td>
                                 }
                                 else
                                 {
-                                    <td>@episode.Subscription.TvShowName @string.Format("{0}x{1}", episode.Episode.SeasonNumber, episode.Episode.EpisodeNumber)</td>
+                                    <td>@episode.Subscription.TvShowName @string.Format("S{0}E{1}", episode.Episode.SeasonNumber, episode.Episode.EpisodeNumber)</td>
                                 }
                                 <td>@episode.Episode.Title</td>
                             </tr>
