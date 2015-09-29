@@ -76,10 +76,6 @@
       <Project>{b96228c0-8af5-42b9-b779-649899cde7eb}</Project>
       <Name>TvShowReminder.TvMazeApi</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TvShowReminder.TvRageApi\TvShowReminder.TvRageApi.csproj">
-      <Project>{75089242-70be-45af-8b06-037921acfda5}</Project>
-      <Name>TvShowReminder.TvRageApi</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

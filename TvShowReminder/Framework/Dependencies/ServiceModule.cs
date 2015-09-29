@@ -6,7 +6,6 @@ using TvShowReminder.Contracts.Response;
 using TvShowReminder.Service.Command;
 using TvShowReminder.Service.Query;
 using TvShowReminder.TvMazeApi;
-using TvShowReminder.TvRageApi;
 
 namespace TvShowReminder.Framework.Dependencies
 {
@@ -14,7 +13,6 @@ namespace TvShowReminder.Framework.Dependencies
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<TvRageService>().As<ITvRageService>();
             builder.RegisterType<TvMazeService>().As<ITvMazeService>();
             builder.RegisterType<UpdateEpisodesService>().As<IUpdateEpisodesService>();
 
