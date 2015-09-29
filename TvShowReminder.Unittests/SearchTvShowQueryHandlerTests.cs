@@ -76,6 +76,19 @@ namespace TvShowReminder.Unittests
             Assert.Equal(true, show1.IsSubscribed);
         }
 
+        [Fact]
+        public void Should_handle_empty_image_data()
+        {
+            const string query = "The awesome show";
+            _tvMazeService.Search(query).Returns(new List<TvMazeShow> { CreateShowWithoutImage() });
+
+            var result = _handler.Handle(new SearchTvShowQuery { Query = query });
+
+            var show = result.TvShows.First();
+            Assert.NotNull(show.ImageUrl);
+            Assert.True(show.ImageUrl == string.Empty);
+        }
+
         private IEnumerable<TvMazeShow> CreateApiResponse()
         {
             return new List<TvMazeShow>
@@ -114,6 +127,18 @@ namespace TvShowReminder.Unittests
                     Medium = "medium2",
                     Original = "original2"
                 }
+            };
+        }
+
+        private TvMazeShow CreateShowWithoutImage()
+        {
+            return new TvMazeShow
+            {
+                Id = 666,
+                Name = "Not nearly awesome",
+                Premiered = new DateTime(2001, 2, 2),
+                Url = "url2",
+                Image = null
             };
         }
     }

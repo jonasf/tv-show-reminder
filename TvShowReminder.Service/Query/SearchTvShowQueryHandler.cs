@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TvShowReminder.Contracts;
 using TvShowReminder.Contracts.Dto;
@@ -6,6 +7,7 @@ using TvShowReminder.Contracts.Query;
 using TvShowReminder.Contracts.Response;
 using TvShowReminder.DataSource;
 using TvShowReminder.TvMazeApi;
+using TvShowReminder.TvMazeApi.Domain;
 
 namespace TvShowReminder.Service.Query
 {
@@ -32,7 +34,7 @@ namespace TvShowReminder.Service.Query
                 Name = show.Name,
                 Link = show.Url,
                 StartedYear = show.Premiered.Year,
-                ImageUrl = show.Image.Medium,
+                ImageUrl = GetImageUrl(show.Image),
                 IsSubscribed = CheckIfSubscribed(subscribedShows, show.Id)
             });
 
@@ -45,6 +47,14 @@ namespace TvShowReminder.Service.Query
         private bool CheckIfSubscribed(List<int> subscribedShows, int showId)
         {
             return subscribedShows.Contains(showId);
+        }
+
+        private string GetImageUrl(TvMazeShowImage image)
+        {
+            if(image == null || image.Medium == null)
+                return String.Empty;
+
+            return image.Medium;
         }
     }
 }
