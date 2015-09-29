@@ -3,64 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using TvShowReminder.Contracts.Dto;
 using TvShowReminder.DataSource;
-using TvShowReminder.TvRageApi;
-using TvShowReminder.TvRageApi.Domain;
+using TvShowReminder.TvMazeApi;
+using TvShowReminder.TvMazeApi.Domain;
 
 namespace TvShowReminder.Service.Command
 {
     public class UpdateEpisodesService : IUpdateEpisodesService
     {
         private readonly IEpisodeCommandDataSource _episodeCommandDataSource;
-        private readonly ITvRageService _tvRageService;
+        private readonly ITvMazeService _tvMazeService;
 
-        public UpdateEpisodesService(IEpisodeCommandDataSource episodeCommandDataSource, ITvRageService tvRageService)
+        public UpdateEpisodesService(IEpisodeCommandDataSource episodeCommandDataSource, ITvMazeService tvMazeService)
         {
             _episodeCommandDataSource = episodeCommandDataSource;
-            _tvRageService = tvRageService;
+            _tvMazeService = tvMazeService;
         }
 
         public DateTime? UpdateEpisodesForSubscription(Subscription subscription)
         {
-            var episodeList = _tvRageService.GetEpisodes(subscription.TvShowId);
+            var episodeList = _tvMazeService.GetEpisodes(subscription.TvShowId);
 
-            var newRegularEpisodes = GetNewRegularEpisodes(episodeList.Episodes, subscription.Id, subscription.LastAirDate);
-            var newSpecialEpisodes = GetNewSpecialEpisodes(episodeList.SpecialEpisodes, subscription.Id, subscription.LastAirDate);
+            var newEpisodes = CreateEpisodes(episodeList, subscription.Id, subscription.LastAirDate);
+            SaveEpisodes(newEpisodes);
 
-            SaveEpisodes(newRegularEpisodes);
-            SaveEpisodes(newSpecialEpisodes);
-
-            return GetLastAirDateForNewShows(newRegularEpisodes, newSpecialEpisodes);
+            return GetLastAirDateForNewEpisodes(newEpisodes);
         }
 
-        private DateTime? GetLastAirDateForNewShows(IList<Episode> newRegularEpisodes, List<Episode> newSpecialEpisodes)
+        private DateTime? GetLastAirDateForNewEpisodes(IList<Episode> newEpisodes)
         {
-            DateTime? regularShowsLastDate = null;
-            DateTime? specialShowsLastDate = null;
+            DateTime? lastAirDateForNewEpisodes = null;
 
-            if (newRegularEpisodes.Any())
-                regularShowsLastDate = newRegularEpisodes.OrderByDescending(s => s.AirDate).Take(1).First().AirDate;
+            if (newEpisodes.Any())
+                lastAirDateForNewEpisodes = newEpisodes.OrderByDescending(s => s.AirDate).Take(1).First().AirDate;
 
-            if (newSpecialEpisodes.Any())
-                specialShowsLastDate = newSpecialEpisodes.OrderByDescending(s => s.AirDate).Take(1).First().AirDate;
-
-            if (regularShowsLastDate == null && specialShowsLastDate == null)
-            {
-                return null;
-            }
-            if (specialShowsLastDate == null)
-            {
-                return regularShowsLastDate;
-            }
-            if (regularShowsLastDate == null)
-            {
-                return specialShowsLastDate;
-            }
-            if (regularShowsLastDate > specialShowsLastDate)
-            {
-                return regularShowsLastDate;
-            }
-
-            return specialShowsLastDate;
+            return lastAirDateForNewEpisodes;
         }
 
         private void SaveEpisodes(IEnumerable<Episode> episodes)
@@ -71,21 +47,7 @@ namespace TvShowReminder.Service.Command
             }
         }
 
-        private List<Episode> GetNewSpecialEpisodes(IEnumerable<TvRageSpecialEpisode> specialEpisodes, int subscriptionId, DateTime lastAirDate)
-        {
-            return specialEpisodes
-                .Where(s => s.AirDate > lastAirDate)
-                .Select(specialEpisode => new Episode
-                {
-                    SubscriptionId = subscriptionId,
-                    SeasonNumber = specialEpisode.Season,
-                    EpisodeNumber = 0,
-                    AirDate = specialEpisode.AirDate.Date,
-                    Title = specialEpisode.Title
-                }).ToList();
-        }
-
-        private List<Episode> GetNewRegularEpisodes(IEnumerable<TvRageEpisode> episodes, int subscriptionId, DateTime lastAirDate)
+        private List<Episode> CreateEpisodes(IEnumerable<TvMazeEpisode> episodes, int subscriptionId, DateTime lastAirDate)
         {
             return episodes
                 .Where(s => s.AirDate > lastAirDate)
@@ -93,9 +55,9 @@ namespace TvShowReminder.Service.Command
                 {
                     SubscriptionId = subscriptionId,
                     SeasonNumber = episode.Season,
-                    EpisodeNumber = episode.SeasonNum,
+                    EpisodeNumber = episode.Number,
                     AirDate = episode.AirDate.Date,
-                    Title = episode.Title
+                    Title = episode.Name
                 }).ToList();
         }
     }
