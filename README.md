@@ -1,7 +1,7 @@
 # TV Show Reminder
 A simple web application to remind one person about his or her TV shows.
 
-It uses the TVRage API:s to retrieve information about TV shows and episodes.
+It uses the TVMaze API:s to retrieve information about TV shows and episodes.
 
 It will run on Microsoft Azure.
 
