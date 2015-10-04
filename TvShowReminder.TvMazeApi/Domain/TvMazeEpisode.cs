@@ -9,6 +9,7 @@ namespace TvShowReminder.TvMazeApi.Domain
         public int Season { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public int Number { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public DateTime AirDate { get; set; }
     }
 }
