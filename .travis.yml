@@ -6,4 +6,4 @@ install:
 script:
   - xbuild /p:Configuration=Release TvShowReminder.sln
   - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./TvShowReminder.Unittests/bin/Release/TvShowReminder.Unittests.dll
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./TvShowReminder.TvMazeApi.UnitTests/bin/Release/TvShowReminder.TvMazeApi.UnitTests.dll
+  #- mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./TvShowReminder.TvMazeApi.UnitTests/bin/Release/TvShowReminder.TvMazeApi.UnitTests.dll
